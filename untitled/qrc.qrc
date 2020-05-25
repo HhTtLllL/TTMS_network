@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/upload.png</file>
+        <file>Images/top3.png</file>
+        <file>Images/top2.png</file>
+        <file>Images/top1.png</file>
+        <file>Images/title_user.png</file>
+        <file>Images/title_share.png</file>
+        <file>Images/title_normal.png</file>
+        <file>Images/title_min.png</file>
+        <file>Images/title_max.png</file>
+        <file>Images/title_data.png</file>
+        <file>Images/title_close.png</file>
+        <file>Images/title_change.png</file>
+        <file>Images/title_bk3.jpg</file>
+        <file>Images/title_bk2.jpg</file>
+        <file>Images/title_bk.jpg</file>
+        <file>Images/tile_min.png</file>
+        <file>Images/tile_hot.png</file>
+        <file>Images/tile_file.png</file>
+        <file>Images/tile_close.png</file>
+        <file>Images/logo.ico</file>
+        <file>Images/login_setting.png</file>
+        <file>Images/login_min.png</file>
+        <file>Images/login_close.png</file>
+        <file>Images/login_bk.jpg</file>
+        <file>Images/login2.jpg</file>
+        <file>Images/Live2D.png</file>
+        <file>Images/display_bk.bmp</file>
+        <file>Images/ChMkJlwjWC2IL_xNABSi2nGf5toAAuAJwBcvSoAFKLy959.jpg</file>
+        <file>Images/balckButton.png</file>
+    </qresource>
+</RCC>
