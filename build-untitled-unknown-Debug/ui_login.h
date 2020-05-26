@@ -80,7 +80,7 @@ public:
         login_page->setObjectName(QStringLiteral("login_page"));
         widget = new QWidget(login_page);
         widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(30, 0, 651, 471));
+        widget->setGeometry(QRect(40, 20, 651, 471));
         horizontalLayout = new QHBoxLayout(widget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
