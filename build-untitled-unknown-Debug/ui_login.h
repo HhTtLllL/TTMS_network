@@ -52,15 +52,19 @@ public:
     QWidget *widget_4;
     QHBoxLayout *horizontalLayout_2;
     QCheckBox *checkBox;
-    QPushButton *pushButton;
+    QPushButton *reg_button;
     QWidget *widget_5;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_2;
+    QPushButton *login_button;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *horizontalSpacer_4;
     QWidget *reg_page;
+    QWidget *widget_6;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLabel *label_6;
 
     void setupUi(QDialog *Login)
     {
@@ -137,10 +141,10 @@ public:
 
         horizontalLayout_2->addWidget(checkBox);
 
-        pushButton = new QPushButton(widget_4);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        reg_button = new QPushButton(widget_4);
+        reg_button->setObjectName(QStringLiteral("reg_button"));
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(reg_button);
 
 
         verticalLayout_2->addWidget(widget_4);
@@ -153,10 +157,10 @@ public:
 
         horizontalLayout_3->addItem(horizontalSpacer);
 
-        pushButton_2 = new QPushButton(widget_5);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        login_button = new QPushButton(widget_5);
+        login_button->setObjectName(QStringLiteral("login_button"));
 
-        horizontalLayout_3->addWidget(pushButton_2);
+        horizontalLayout_3->addWidget(login_button);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -179,12 +183,27 @@ public:
         stackedWidget->addWidget(login_page);
         reg_page = new QWidget();
         reg_page->setObjectName(QStringLiteral("reg_page"));
+        widget_6 = new QWidget(reg_page);
+        widget_6->setObjectName(QStringLiteral("widget_6"));
+        widget_6->setGeometry(QRect(50, 0, 501, 561));
+        label_4 = new QLabel(widget_6);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(200, 30, 101, 41));
+        label_5 = new QLabel(widget_6);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(80, 160, 53, 17));
+        label_6 = new QLabel(widget_6);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(80, 210, 111, 17));
         stackedWidget->addWidget(reg_page);
 
         verticalLayout->addWidget(stackedWidget);
 
 
         retranslateUi(Login);
+
+        stackedWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(Login);
     } // setupUi
@@ -196,8 +215,11 @@ public:
         label_2->setText(QApplication::translate("Login", "\347\224\250\346\210\267\345\220\215", 0));
         label_3->setText(QApplication::translate("Login", "\345\257\206\347\240\201", 0));
         checkBox->setText(QApplication::translate("Login", "\350\256\260\344\275\217\345\257\206\347\240\201", 0));
-        pushButton->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
-        pushButton_2->setText(QApplication::translate("Login", "\347\231\273\345\275\225", 0));
+        reg_button->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
+        login_button->setText(QApplication::translate("Login", "\347\231\273\345\275\225", 0));
+        label_4->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
+        label_5->setText(QApplication::translate("Login", "\345\257\206\347\240\201", 0));
+        label_6->setText(QApplication::translate("Login", "\347\241\256\350\256\244\345\257\206\347\240\201", 0));
     } // retranslateUi
 
 };

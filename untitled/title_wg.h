@@ -18,6 +18,11 @@ public:
 protected:
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent * event);
+
+    //自定义信号
+signals:
+    void closeWindow();
+
 private:
     Ui::title_wg *ui;
     QPoint m_pt; //差值 : 鼠标当前位置  - 窗口左上角点

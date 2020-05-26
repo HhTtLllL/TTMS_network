@@ -12,10 +12,17 @@ title_wg::title_wg(QWidget *parent) : //parent 为这个窗口的父窗口
     m_parent = parent;  //因为这个parent 只能在构造函数中获取,所以在这里将父指针保存起来
 
     //按钮功能实现
-   /* connect(ui->min,&QToolButton::clicked,this,[=]()
+    connect(ui->min,&QToolButton::clicked,this,[=]()
     {
+        m_parent->showMinimized();
+    });
 
-    });*/
+    connect(ui->close,&QToolButton::clicked,this,[=]()
+    {
+        //发送自定义信号,发送给父窗口
+        emit closeWindow();
+    });
+
 }
 
 title_wg::~title_wg()

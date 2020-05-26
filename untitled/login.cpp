@@ -11,6 +11,40 @@ Login::Login(QWidget *parent) :
     this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
     //设置当前窗口的所有字体
 
+    //切换到注册窗口
+    connect(ui->reg_button,&QPushButton::clicked,this,[=]()
+    {
+        ui->stackedWidget->setCurrentWidget(ui->reg_page);
+    });
+
+    connect(ui->login_button,&QPushButton::clicked,this,[=]()
+    {
+        //验证账号和密码
+
+        //如果账号和密码正确
+        //如果不正确
+
+    });
+
+    //title_wg  信号的处理
+    connect(ui->title_widget,&title_wg::closeWindow,[=]()
+    {
+        //判断当前stackedWidget显示的页面
+        if(ui->stackedWidget->currentWidget() == ui->reg_page)
+        {
+            //切换到登录
+            ui->stackedWidget->setCurrentWidget(ui->login_page);
+            //清空数据
+
+        }
+        else {
+
+            this->close();
+        }
+
+    });
+
+
 }
 
 Login::~Login()
