@@ -21,9 +21,6 @@ protected:
     //这个是一个回调，自动被调用。只需要将刷新的操作写入这里就行
     void paintEvent(QPaintEvent * event);
 
-private slots:
-    void on_login_button_clicked();
-
 private:
     Ui::Login *ui;
 };

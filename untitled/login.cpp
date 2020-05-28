@@ -1,16 +1,11 @@
 #include "login.h"
 #include "ui_login.h"
 #include <QPainter> //唯一一个画图类
-#include "tcpclient.h"
-#include <QHostAddress>
-#include <QDebug>
-
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
 {
-
     ui->setupUi(this);
     //去掉边框
     this->setWindowFlags(Qt::FramelessWindowHint | windowFlags());
@@ -20,6 +15,16 @@ Login::Login(QWidget *parent) :
     connect(ui->reg_button,&QPushButton::clicked,this,[=]()
     {
         ui->stackedWidget->setCurrentWidget(ui->reg_page);
+    });
+    //注册完成跳转登录
+
+    connect(ui->login_button,&QPushButton::clicked,this,[=]()
+    {
+        //验证账号和密码
+
+        //如果账号和密码正确
+        //如果不正确
+
     });
 
     //title_wg  信号的处理
@@ -54,26 +59,4 @@ void Login::paintEvent(QPaintEvent *event)
     QPainter p(this); //将p的操作 画到this 上面
     QPixmap pixmap(":/Images/login_bk.jpg");
     p.drawPixmap(0,0,this->width(),this->height(),pixmap);
-}
-
-void Login::on_login_button_clicked()
-{
-    QString ip = "127.0.0.1";
-    qint16 port = 8888;
-    
-
-    //QTcpSocket tcpsocket;
-
-
-    tcpClient& tcpsocket = tcpClient::get_tcpclient();
-    //QTcpSocket* tcpSocket =tcpsocket.get_tcpSocket();
-
-    //qDebug() << tcpsocket.i ;
-
-    tcpsocket.tcpSocket->connectToHost(QHostAddress(ip),port);
-
-
-
-
-
 }
