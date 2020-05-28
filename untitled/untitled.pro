@@ -29,18 +29,21 @@ SOURCES += \
         mainwindow.cpp \
     login.cpp \
     title_wg.cpp \
-    tcpclient.cpp
+    tcpclient.cpp \
+    mainmenu.cpp
 
 HEADERS += \
         mainwindow.h \
     login.h \
     title_wg.h \
-    tcpclient.h
+    tcpclient.h \
+    mainmenu.h
 
 FORMS += \
         mainwindow.ui \
     login.ui \
-    title_wg.ui
+    title_wg.ui \
+    mainmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

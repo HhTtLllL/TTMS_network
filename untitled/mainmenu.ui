@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Mainmenu</class>
+ <widget class="QMainWindow" name="Mainmenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>菜单</string>
+    </property>
+    <widget class="QMenu" name="movie_operation">
+     <property name="title">
+      <string>电影操作</string>
+     </property>
+     <addaction name="delete_movie"/>
+     <addaction name="add_movie"/>
+     <addaction name="modify_movie"/>
+     <addaction name="get_movie"/>
+    </widget>
+    <widget class="QMenu" name="theater_operation">
+     <property name="title">
+      <string>影厅操作</string>
+     </property>
+     <addaction name="add_theater"/>
+     <addaction name="delete_theater"/>
+     <addaction name="get_theater"/>
+     <addaction name="modify_theater"/>
+    </widget>
+    <widget class="QMenu" name="seat_operation">
+     <property name="title">
+      <string>座位操作</string>
+     </property>
+     <addaction name="add_seat"/>
+     <addaction name="delete_seat"/>
+     <addaction name="modify_seat"/>
+     <addaction name="get_seat"/>
+    </widget>
+    <widget class="QMenu" name="movie_plan_opeartion">
+     <property name="title">
+      <string>电影计划操作</string>
+     </property>
+     <addaction name="add_movie_plan"/>
+     <addaction name="delete_movie_plan"/>
+     <addaction name="modify_movie_plan"/>
+     <addaction name="search_movie_plan"/>
+    </widget>
+    <addaction name="movie_operation"/>
+    <addaction name="separator"/>
+    <addaction name="theater_operation"/>
+    <addaction name="seat_operation"/>
+    <addaction name="movie_plan_opeartion"/>
+   </widget>
+   <widget class="QMenu" name="system_set">
+    <property name="title">
+     <string>系统设置</string>
+    </property>
+    <addaction name="modify_password"/>
+    <addaction name="modify_information"/>
+    <addaction name="logout"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="system_set"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="modify_password">
+   <property name="text">
+    <string>修改密码</string>
+   </property>
+  </action>
+  <action name="modify_information">
+   <property name="text">
+    <string>修改用户信息</string>
+   </property>
+  </action>
+  <action name="logout">
+   <property name="text">
+    <string>注销</string>
+   </property>
+  </action>
+  <action name="delete_movie">
+   <property name="text">
+    <string>删除电影</string>
+   </property>
+  </action>
+  <action name="add_movie">
+   <property name="text">
+    <string>添加电影</string>
+   </property>
+  </action>
+  <action name="modify_movie">
+   <property name="text">
+    <string>修改电影信息</string>
+   </property>
+  </action>
+  <action name="get_movie">
+   <property name="text">
+    <string>获取所有电影</string>
+   </property>
+  </action>
+  <action name="add_theater">
+   <property name="text">
+    <string>增加影厅</string>
+   </property>
+  </action>
+  <action name="delete_theater">
+   <property name="text">
+    <string>删除影厅</string>
+   </property>
+  </action>
+  <action name="get_theater">
+   <property name="text">
+    <string>获取所有影厅</string>
+   </property>
+  </action>
+  <action name="modify_theater">
+   <property name="text">
+    <string>修改影厅</string>
+   </property>
+  </action>
+  <action name="add_seat">
+   <property name="text">
+    <string>增加座位</string>
+   </property>
+  </action>
+  <action name="delete_seat">
+   <property name="text">
+    <string>删除座位</string>
+   </property>
+  </action>
+  <action name="modify_seat">
+   <property name="text">
+    <string>修改座位</string>
+   </property>
+  </action>
+  <action name="get_seat">
+   <property name="text">
+    <string>获取某影厅所有座位</string>
+   </property>
+  </action>
+  <action name="add_movie_plan">
+   <property name="text">
+    <string>增加电影计划</string>
+   </property>
+  </action>
+  <action name="delete_movie_plan">
+   <property name="text">
+    <string>删除电影计划</string>
+   </property>
+  </action>
+  <action name="modify_movie_plan">
+   <property name="text">
+    <string>修改电影计划</string>
+   </property>
+  </action>
+  <action name="search_movie_plan">
+   <property name="text">
+    <string>查询电影计划</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
