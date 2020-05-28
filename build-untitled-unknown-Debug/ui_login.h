@@ -63,8 +63,14 @@ public:
     QWidget *reg_page;
     QWidget *widget_6;
     QLabel *label_4;
-    QLabel *label_5;
-    QLabel *label_6;
+    QWidget *widget_7;
+    QLineEdit *lineEdit_3;
+    QLineEdit *lineEdit_4;
+    QLineEdit *lineEdit_5;
+    QLineEdit *lineEdit_6;
+    QLineEdit *lineEdit_7;
+    QLineEdit *lineEdit_8;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *Login)
     {
@@ -116,6 +122,7 @@ public:
 
         lineEdit = new QLineEdit(widget_3);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setEchoMode(QLineEdit::Normal);
 
         gridLayout->addWidget(lineEdit, 0, 1, 1, 1);
 
@@ -126,6 +133,7 @@ public:
 
         lineEdit_2 = new QLineEdit(widget_3);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        lineEdit_2->setEchoMode(QLineEdit::Password);
 
         gridLayout->addWidget(lineEdit_2, 1, 1, 1, 1);
 
@@ -189,12 +197,32 @@ public:
         label_4 = new QLabel(widget_6);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(200, 30, 101, 41));
-        label_5 = new QLabel(widget_6);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(80, 160, 53, 17));
-        label_6 = new QLabel(widget_6);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(80, 210, 111, 17));
+        widget_7 = new QWidget(widget_6);
+        widget_7->setObjectName(QStringLiteral("widget_7"));
+        widget_7->setGeometry(QRect(90, 80, 271, 241));
+        lineEdit_3 = new QLineEdit(widget_7);
+        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(10, 0, 221, 31));
+        lineEdit_4 = new QLineEdit(widget_7);
+        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+        lineEdit_4->setGeometry(QRect(10, 40, 221, 31));
+        lineEdit_5 = new QLineEdit(widget_7);
+        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+        lineEdit_5->setGeometry(QRect(10, 80, 221, 31));
+        lineEdit_5->setEchoMode(QLineEdit::Password);
+        lineEdit_6 = new QLineEdit(widget_7);
+        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
+        lineEdit_6->setGeometry(QRect(10, 120, 221, 31));
+        lineEdit_6->setEchoMode(QLineEdit::Password);
+        lineEdit_7 = new QLineEdit(widget_7);
+        lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
+        lineEdit_7->setGeometry(QRect(10, 160, 221, 31));
+        lineEdit_8 = new QLineEdit(widget_7);
+        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
+        lineEdit_8->setGeometry(QRect(10, 200, 221, 31));
+        pushButton = new QPushButton(widget_6);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(150, 350, 93, 28));
         stackedWidget->addWidget(reg_page);
 
         verticalLayout->addWidget(stackedWidget);
@@ -218,8 +246,13 @@ public:
         reg_button->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
         login_button->setText(QApplication::translate("Login", "\347\231\273\345\275\225", 0));
         label_4->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
-        label_5->setText(QApplication::translate("Login", "\345\257\206\347\240\201", 0));
-        label_6->setText(QApplication::translate("Login", "\347\241\256\350\256\244\345\257\206\347\240\201", 0));
+        lineEdit_3->setPlaceholderText(QApplication::translate("Login", "\350\276\223\345\205\245\345\220\215\347\247\260", 0));
+        lineEdit_4->setPlaceholderText(QApplication::translate("Login", "\347\224\265\345\255\220\351\202\256\347\256\261", 0));
+        lineEdit_5->setPlaceholderText(QApplication::translate("Login", "\345\257\206\347\240\201", 0));
+        lineEdit_6->setPlaceholderText(QApplication::translate("Login", "\347\241\256\350\256\244\345\257\206\347\240\201", 0));
+        lineEdit_7->setPlaceholderText(QApplication::translate("Login", "\347\224\265\350\257\235", 0));
+        lineEdit_8->setPlaceholderText(QApplication::translate("Login", "\344\275\217\345\235\200", 0));
+        pushButton->setText(QApplication::translate("Login", "\346\263\250\345\206\214\345\256\214\346\210\220", 0));
     } // retranslateUi
 
 };

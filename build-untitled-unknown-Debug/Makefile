@@ -471,35 +471,35 @@ compiler_rcc_make_all: qrc_qrc.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qrc.cpp
 qrc_qrc.cpp: ../untitled/qrc.qrc \
-		../untitled/Images/logo.ico \
-		../untitled/Images/ChMkJlwjWC2IL_xNABSi2nGf5toAAuAJwBcvSoAFKLy959.jpg \
-		../untitled/Images/login2.jpg \
-		../untitled/Images/title_user.png \
-		../untitled/Images/login_bk.jpg \
-		../untitled/Images/title_data.png \
-		../untitled/Images/upload.png \
-		../untitled/Images/balckButton.png \
-		../untitled/Images/top1.png \
-		../untitled/Images/login_min.png \
-		../untitled/Images/top2.png \
-		../untitled/Images/title_share.png \
-		../untitled/Images/top3.png \
-		../untitled/Images/tile_min.png \
-		../untitled/Images/display_bk.bmp \
-		../untitled/Images/title_max.png \
-		../untitled/Images/title_bk2.jpg \
 		../untitled/Images/title_bk3.jpg \
-		../untitled/Images/title_bk.jpg \
-		../untitled/Images/login_close.png \
+		../untitled/Images/login_bk.jpg \
 		../untitled/Images/login_setting.png \
-		../untitled/Images/title_normal.png \
+		../untitled/Images/top1.png \
+		../untitled/Images/top2.png \
+		../untitled/Images/top3.png \
+		../untitled/Images/display_bk.bmp \
 		../untitled/Images/title_min.png \
-		../untitled/Images/title_close.png \
+		../untitled/Images/balckButton.png \
 		../untitled/Images/tile_file.png \
 		../untitled/Images/tile_close.png \
-		../untitled/Images/title_change.png \
+		../untitled/Images/tile_min.png \
+		../untitled/Images/title_share.png \
+		../untitled/Images/login_close.png \
+		../untitled/Images/title_normal.png \
+		../untitled/Images/title_user.png \
+		../untitled/Images/login2.jpg \
+		../untitled/Images/title_bk.jpg \
 		../untitled/Images/Live2D.png \
-		../untitled/Images/tile_hot.png
+		../untitled/Images/title_max.png \
+		../untitled/Images/title_data.png \
+		../untitled/Images/logo.ico \
+		../untitled/Images/login_min.png \
+		../untitled/Images/ChMkJlwjWC2IL_xNABSi2nGf5toAAuAJwBcvSoAFKLy959.jpg \
+		../untitled/Images/tile_hot.png \
+		../untitled/Images/title_close.png \
+		../untitled/Images/title_change.png \
+		../untitled/Images/upload.png \
+		../untitled/Images/title_bk2.jpg
 	/opt/Qt5.3.0/5.3/gcc_64/bin/rcc -name qrc ../untitled/qrc.qrc -o qrc_qrc.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_login.cpp moc_title_wg.cpp
@@ -1365,7 +1365,14 @@ login.o: ../untitled/login.cpp ../untitled/login.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QWidget \
 		../untitled/title_wg.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/QPainter \
-		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qpainter.h
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qpainter.h \
+		../untitled/tcpclient.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/QTcpSocket \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/QHostAddress \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qhostaddress.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../untitled/login.cpp
 
 title_wg.o: ../untitled/title_wg.cpp ../untitled/title_wg.h \
@@ -1584,7 +1591,8 @@ tcpclient.o: ../untitled/tcpclient.cpp ../untitled/tcpclient.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qvector.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qpoint.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qset.h \
-		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qcontiguouscache.h
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tcpclient.o ../untitled/tcpclient.cpp
 
 qrc_qrc.o: qrc_qrc.cpp 

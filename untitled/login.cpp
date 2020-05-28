@@ -1,6 +1,8 @@
 #include "login.h"
 #include "ui_login.h"
 #include <QPainter> //唯一一个画图类
+#include "tcpclient.h"
+#include <QHostAddress>
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
@@ -59,4 +61,24 @@ void Login::paintEvent(QPaintEvent *event)
     QPainter p(this); //将p的操作 画到this 上面
     QPixmap pixmap(":/Images/login_bk.jpg");
     p.drawPixmap(0,0,this->width(),this->height(),pixmap);
+}
+
+void Login::on_login_button_clicked()
+{
+    QString ip = "127.0.0.1";
+    qint16 port = 8888;
+
+
+    //QTcpSocket tcpsocket;
+
+
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+    //QTcpSocket* tcpSocket =tcpsocket.get_tcpSocket();
+
+    //qDebug() << tcpsocket.i ;
+
+    tcpsocket.tcpSocket->connectToHost(QHostAddress(ip),port);
+
+
+
 }
