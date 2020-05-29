@@ -203,7 +203,7 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(100, 50, 581, 441));
+        stackedWidget->setGeometry(QRect(50, 70, 674, 431));
         modify_password_ui = new QWidget();
         modify_password_ui->setObjectName(QStringLiteral("modify_password_ui"));
         lineEdit_2 = new QLineEdit(modify_password_ui);
@@ -211,7 +211,7 @@ public:
         lineEdit_2->setGeometry(QRect(230, 70, 108, 25));
         label = new QLabel(modify_password_ui);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(9, 69, 45, 23));
+        label->setGeometry(QRect(160, 70, 45, 23));
         label_2 = new QLabel(modify_password_ui);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(9, 98, 45, 23));
@@ -542,7 +542,7 @@ public:
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(6);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
