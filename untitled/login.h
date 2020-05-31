@@ -24,6 +24,8 @@ protected:
 private slots:
     void on_login_button_clicked();
 
+    void on_reg_button_clicked();
+
 private:
     Ui::Login *ui;
 };

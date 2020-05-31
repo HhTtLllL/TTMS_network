@@ -9,7 +9,7 @@ class tcpClient
 public:
     ~tcpClient()
     {
-        //delete tcpSocket;
+        delete tcpSocket;
     }
     QTcpSocket * tcpSocket;
 

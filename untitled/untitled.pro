@@ -30,14 +30,16 @@ SOURCES += \
     login.cpp \
     title_wg.cpp \
     tcpclient.cpp \
-    mainmenu.cpp
+    mainmenu.cpp \
+    accept.cpp
 
 HEADERS += \
         mainwindow.h \
     login.h \
     title_wg.h \
     tcpclient.h \
-    mainmenu.h
+    mainmenu.h \
+    accept.h
 
 FORMS += \
         mainwindow.ui \

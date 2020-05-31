@@ -85,17 +85,4 @@ void Login::on_reg_button_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->reg_page);
 
-    tcpClient& tcpsocket = tcpClient::get_tcpclient();
-
-    connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
-    {
-        tcpClient& tcpsocket = tcpClient::get_tcpclient();
-
-        //获取对方发送的内容
-        QByteArray  array = tcpsocket.tcpSocket->readAll();
-        qDebug() << "reg" << array << '\n';
-
-
-    });
-
 }
