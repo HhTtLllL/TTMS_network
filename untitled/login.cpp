@@ -3,6 +3,12 @@
 #include <QPainter> //唯一一个画图类
 #include "tcpclient.h"
 #include <QHostAddress>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QLineEdit>
+#include "common.h"
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
@@ -66,17 +72,43 @@ void Login::on_login_button_clicked()
     tcpsocket.tcpSocket->connectToHost(QHostAddress(ip),port);
 
 
-    connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
-    {
-        tcpClient& tcpsocket = tcpClient::get_tcpclient();
+    //判断内容是否为空内容是否为空
 
-        //获取对方发送的内容
-        QByteArray  array = tcpsocket.tcpSocket->readAll();
-        qDebug() << "login" << array << '\n';
+    QJsonObject obj;
+    QJsonObject sub;
+
+    QJsonArray what;
+    what.append("*");
+
+    obj.insert("what",QJsonValue(what));
+
+    QJsonArray op;
+    op.append("=");
+    op.append("=");
+
+    obj.insert("op",QJsonValue(op));
+
+    obj.insert("tableName",QJsonValue("user"));
+
+    sub.insert("uid",QJsonValue(ui->lineEdit_account->text()));
+    sub.insert("passWord",QJsonValue(ui->lineEdit_password->text()));
 
 
-    });
+    obj.insert("data",QJsonValue(sub));
+    QJsonDocument doc(obj);
 
+    int size = sizeof(obj);
+    qDebug() << size;
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
 
 }
 
@@ -84,18 +116,44 @@ void Login::on_login_button_clicked()
 void Login::on_reg_button_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->reg_page);
+}
+
+//提交注册信息
+void Login::on_pushButton_clicked()
+{
+    QString ip = "127.0.0.1";
+    qint16 port = 8888;
 
     tcpClient& tcpsocket = tcpClient::get_tcpclient();
 
-    connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
-    {
-        tcpClient& tcpsocket = tcpClient::get_tcpclient();
+    tcpsocket.tcpSocket->connectToHost(QHostAddress(ip),port);
 
-        //获取对方发送的内容
-        QByteArray  array = tcpsocket.tcpSocket->readAll();
-        qDebug() << "reg" << array << '\n';
+    QJsonObject obj;
+    QJsonObject sub;
 
+    obj.insert("tableName",QJsonValue("user"));
+    sub.insert("userName",QJsonValue("NULL"));
+    sub.insert("passWord",QJsonValue("NULL"));
+    sub.insert("sex",QJsonValue("NULL"));
+    sub.insert("phoneNumber",QJsonValue("NULL"));
+    sub.insert("mibao",QJsonValue("NULL"));
+    sub.insert("power",QJsonValue("NULL"));
 
-    });
+    obj.insert("data",QJsonValue(sub));
+
+    QJsonDocument doc(obj);
+
+    int size = sizeof(obj);
+    qDebug() << size;
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
 
 }

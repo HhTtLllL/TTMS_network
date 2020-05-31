@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_Mainmenu_t {
-    QByteArrayData data[21];
-    char stringdata[510];
+    QByteArrayData data[24];
+    char stringdata[580];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -49,7 +49,10 @@ QT_MOC_LITERAL(16, 367, 21),
 QT_MOC_LITERAL(17, 389, 27),
 QT_MOC_LITERAL(18, 417, 30),
 QT_MOC_LITERAL(19, 448, 30),
-QT_MOC_LITERAL(20, 479, 30)
+QT_MOC_LITERAL(20, 479, 30),
+QT_MOC_LITERAL(21, 510, 21),
+QT_MOC_LITERAL(22, 532, 23),
+QT_MOC_LITERAL(23, 556, 23)
     },
     "Mainmenu\0on_modify_password_triggered\0"
     "\0on_modify_information_triggered\0"
@@ -64,7 +67,9 @@ QT_MOC_LITERAL(20, 479, 30)
     "on_add_movie_plan_triggered\0"
     "on_delete_movie_plan_triggered\0"
     "on_modify_movie_plan_triggered\0"
-    "on_search_movie_plan_triggered"
+    "on_search_movie_plan_triggered\0"
+    "on_pushButton_clicked\0on_pushButton_2_clicked\0"
+    "on_pushButton_3_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -74,7 +79,7 @@ static const uint qt_meta_data_Mainmenu[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      19,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -82,27 +87,33 @@ static const uint qt_meta_data_Mainmenu[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  109,    2, 0x08 /* Private */,
-       3,    0,  110,    2, 0x08 /* Private */,
-       4,    0,  111,    2, 0x08 /* Private */,
-       5,    0,  112,    2, 0x08 /* Private */,
-       6,    0,  113,    2, 0x08 /* Private */,
-       7,    0,  114,    2, 0x08 /* Private */,
-       8,    0,  115,    2, 0x08 /* Private */,
-       9,    0,  116,    2, 0x08 /* Private */,
-      10,    0,  117,    2, 0x08 /* Private */,
-      11,    0,  118,    2, 0x08 /* Private */,
-      12,    0,  119,    2, 0x08 /* Private */,
-      13,    0,  120,    2, 0x08 /* Private */,
-      14,    0,  121,    2, 0x08 /* Private */,
-      15,    0,  122,    2, 0x08 /* Private */,
-      16,    0,  123,    2, 0x08 /* Private */,
-      17,    0,  124,    2, 0x08 /* Private */,
-      18,    0,  125,    2, 0x08 /* Private */,
-      19,    0,  126,    2, 0x08 /* Private */,
-      20,    0,  127,    2, 0x08 /* Private */,
+       1,    0,  124,    2, 0x08 /* Private */,
+       3,    0,  125,    2, 0x08 /* Private */,
+       4,    0,  126,    2, 0x08 /* Private */,
+       5,    0,  127,    2, 0x08 /* Private */,
+       6,    0,  128,    2, 0x08 /* Private */,
+       7,    0,  129,    2, 0x08 /* Private */,
+       8,    0,  130,    2, 0x08 /* Private */,
+       9,    0,  131,    2, 0x08 /* Private */,
+      10,    0,  132,    2, 0x08 /* Private */,
+      11,    0,  133,    2, 0x08 /* Private */,
+      12,    0,  134,    2, 0x08 /* Private */,
+      13,    0,  135,    2, 0x08 /* Private */,
+      14,    0,  136,    2, 0x08 /* Private */,
+      15,    0,  137,    2, 0x08 /* Private */,
+      16,    0,  138,    2, 0x08 /* Private */,
+      17,    0,  139,    2, 0x08 /* Private */,
+      18,    0,  140,    2, 0x08 /* Private */,
+      19,    0,  141,    2, 0x08 /* Private */,
+      20,    0,  142,    2, 0x08 /* Private */,
+      21,    0,  143,    2, 0x08 /* Private */,
+      22,    0,  144,    2, 0x08 /* Private */,
+      23,    0,  145,    2, 0x08 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -150,6 +161,9 @@ void Mainmenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 16: _t->on_delete_movie_plan_triggered(); break;
         case 17: _t->on_modify_movie_plan_triggered(); break;
         case 18: _t->on_search_movie_plan_triggered(); break;
+        case 19: _t->on_pushButton_clicked(); break;
+        case 20: _t->on_pushButton_2_clicked(); break;
+        case 21: _t->on_pushButton_3_clicked(); break;
         default: ;
         }
     }
@@ -181,13 +195,13 @@ int Mainmenu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 19)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 19;
+        _id -= 22;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 19)
+        if (_id < 22)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 19;
+        _id -= 22;
     }
     return _id;
 }

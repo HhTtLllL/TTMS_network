@@ -24,10 +24,10 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="modify_password_ui">
-     <widget class="QLineEdit" name="lineEdit_2">
+     <widget class="QLineEdit" name="lineEdit_old_password">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -76,7 +76,7 @@
        <string>确认密码</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+     <widget class="QLineEdit" name="lineEdit_new_password">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -86,7 +86,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="lineEdit_again_password">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -176,7 +176,7 @@
        <string>密保</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
+     <widget class="QLineEdit" name="lineEdit_sex">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -186,7 +186,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
+     <widget class="QLineEdit" name="lineEdit_phone">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -196,7 +196,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_7">
+     <widget class="QLineEdit" name="lineEdit_mibao">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -224,14 +224,37 @@
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>170</y>
+        <x>260</x>
+        <y>290</y>
         <width>91</width>
         <height>51</height>
        </rect>
       </property>
       <property name="text">
        <string>确认注销</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_39">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>170</y>
+        <width>53</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>密码</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_logout_password">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>160</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
       </property>
      </widget>
     </widget>

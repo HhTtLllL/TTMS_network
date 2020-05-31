@@ -1,6 +1,7 @@
 #ifndef TCPCLIENT_H
 #define TCPCLIENT_H
 
+//用来保存 唯一一个 tcpsocket 实例
 #include <QTcpSocket>
 #include <QDebug>
 
@@ -21,15 +22,7 @@ public:
 
         return tcpclient;
     }
-
-/*    static QTcpSocket* get_tcpSocket()
-    {
-        return tcpSocket;
-    }
-*/
 private:
-   // QTcpSocket * tcpSocket;
-
     tcpClient()
     {
         tcpSocket = new QTcpSocket();

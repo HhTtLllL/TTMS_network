@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     w.show();
 
     Mainmenu w2;
-    //w2.show();
+    w2.show();
 
 
     return a.exec();

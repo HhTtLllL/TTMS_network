@@ -83,7 +83,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLineEdit" name="lineEdit">
+               <widget class="QLineEdit" name="lineEdit_account">
                 <property name="echoMode">
                  <enum>QLineEdit::Normal</enum>
                 </property>
@@ -97,7 +97,7 @@
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QLineEdit" name="lineEdit_2">
+               <widget class="QLineEdit" name="lineEdit_password">
                 <property name="echoMode">
                  <enum>QLineEdit::Password</enum>
                 </property>
@@ -229,7 +229,7 @@
           <height>241</height>
          </rect>
         </property>
-        <widget class="QLineEdit" name="lineEdit_3">
+        <widget class="QLineEdit" name="lineEdit_userName">
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -242,7 +242,7 @@
           <string>输入名称</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="lineEdit_4">
+        <widget class="QLineEdit" name="lineEdit_emil">
          <property name="geometry">
           <rect>
            <x>10</x>

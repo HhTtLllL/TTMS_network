@@ -31,7 +31,9 @@ SOURCES += \
     title_wg.cpp \
     tcpclient.cpp \
     mainmenu.cpp \
-    accept.cpp
+    accept.cpp \
+    common.cpp \
+    user.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +41,9 @@ HEADERS += \
     title_wg.h \
     tcpclient.h \
     mainmenu.h \
-    accept.h
+    accept.h \
+    common.h \
+    user.h
 
 FORMS += \
         mainwindow.ui \

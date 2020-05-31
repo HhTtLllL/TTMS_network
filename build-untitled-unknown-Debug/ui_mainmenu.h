@@ -52,12 +52,12 @@ public:
     QWidget *centralwidget;
     QStackedWidget *stackedWidget;
     QWidget *modify_password_ui;
-    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_old_password;
     QLabel *label;
     QLabel *label_2;
     QLabel *label_3;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_4;
+    QLineEdit *lineEdit_new_password;
+    QLineEdit *lineEdit_again_password;
     QLabel *label_4;
     QPushButton *pushButton;
     QWidget *modify_information_ui;
@@ -65,12 +65,14 @@ public:
     QLabel *label_7;
     QLabel *label_8;
     QLabel *label_9;
-    QLineEdit *lineEdit_5;
-    QLineEdit *lineEdit_6;
-    QLineEdit *lineEdit_7;
+    QLineEdit *lineEdit_sex;
+    QLineEdit *lineEdit_phone;
+    QLineEdit *lineEdit_mibao;
     QPushButton *pushButton_2;
     QWidget *logout_ui;
     QPushButton *pushButton_3;
+    QLabel *label_39;
+    QLineEdit *lineEdit_logout_password;
     QWidget *home;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
@@ -206,9 +208,9 @@ public:
         stackedWidget->setGeometry(QRect(50, 70, 674, 431));
         modify_password_ui = new QWidget();
         modify_password_ui->setObjectName(QStringLiteral("modify_password_ui"));
-        lineEdit_2 = new QLineEdit(modify_password_ui);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(230, 70, 108, 25));
+        lineEdit_old_password = new QLineEdit(modify_password_ui);
+        lineEdit_old_password->setObjectName(QStringLiteral("lineEdit_old_password"));
+        lineEdit_old_password->setGeometry(QRect(230, 70, 108, 25));
         label = new QLabel(modify_password_ui);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(160, 70, 45, 23));
@@ -218,12 +220,12 @@ public:
         label_3 = new QLabel(modify_password_ui);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setGeometry(QRect(9, 158, 60, 23));
-        lineEdit_3 = new QLineEdit(modify_password_ui);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(230, 110, 108, 25));
-        lineEdit_4 = new QLineEdit(modify_password_ui);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(230, 160, 108, 25));
+        lineEdit_new_password = new QLineEdit(modify_password_ui);
+        lineEdit_new_password->setObjectName(QStringLiteral("lineEdit_new_password"));
+        lineEdit_new_password->setGeometry(QRect(230, 110, 108, 25));
+        lineEdit_again_password = new QLineEdit(modify_password_ui);
+        lineEdit_again_password->setObjectName(QStringLiteral("lineEdit_again_password"));
+        lineEdit_again_password->setGeometry(QRect(230, 160, 108, 25));
         label_4 = new QLabel(modify_password_ui);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setGeometry(QRect(260, 20, 60, 23));
@@ -245,15 +247,15 @@ public:
         label_9 = new QLabel(modify_information_ui);
         label_9->setObjectName(QStringLiteral("label_9"));
         label_9->setGeometry(QRect(150, 220, 53, 17));
-        lineEdit_5 = new QLineEdit(modify_information_ui);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
-        lineEdit_5->setGeometry(QRect(210, 150, 113, 25));
-        lineEdit_6 = new QLineEdit(modify_information_ui);
-        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
-        lineEdit_6->setGeometry(QRect(210, 180, 113, 25));
-        lineEdit_7 = new QLineEdit(modify_information_ui);
-        lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
-        lineEdit_7->setGeometry(QRect(210, 220, 113, 25));
+        lineEdit_sex = new QLineEdit(modify_information_ui);
+        lineEdit_sex->setObjectName(QStringLiteral("lineEdit_sex"));
+        lineEdit_sex->setGeometry(QRect(210, 150, 113, 25));
+        lineEdit_phone = new QLineEdit(modify_information_ui);
+        lineEdit_phone->setObjectName(QStringLiteral("lineEdit_phone"));
+        lineEdit_phone->setGeometry(QRect(210, 180, 113, 25));
+        lineEdit_mibao = new QLineEdit(modify_information_ui);
+        lineEdit_mibao->setObjectName(QStringLiteral("lineEdit_mibao"));
+        lineEdit_mibao->setGeometry(QRect(210, 220, 113, 25));
         pushButton_2 = new QPushButton(modify_information_ui);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(200, 300, 80, 25));
@@ -262,7 +264,13 @@ public:
         logout_ui->setObjectName(QStringLiteral("logout_ui"));
         pushButton_3 = new QPushButton(logout_ui);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(220, 170, 91, 51));
+        pushButton_3->setGeometry(QRect(260, 290, 91, 51));
+        label_39 = new QLabel(logout_ui);
+        label_39->setObjectName(QStringLiteral("label_39"));
+        label_39->setGeometry(QRect(130, 170, 53, 17));
+        lineEdit_logout_password = new QLineEdit(logout_ui);
+        lineEdit_logout_password->setObjectName(QStringLiteral("lineEdit_logout_password"));
+        lineEdit_logout_password->setGeometry(QRect(200, 160, 113, 25));
         stackedWidget->addWidget(logout_ui);
         home = new QWidget();
         home->setObjectName(QStringLiteral("home"));
@@ -542,7 +550,7 @@ public:
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
@@ -581,6 +589,7 @@ public:
         label_9->setText(QApplication::translate("Mainmenu", "\345\257\206\344\277\235", 0));
         pushButton_2->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\344\277\256\346\224\271", 0));
         pushButton_3->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\346\263\250\351\224\200", 0));
+        label_39->setText(QApplication::translate("Mainmenu", "\345\257\206\347\240\201", 0));
         pushButton_4->setText(QApplication::translate("Mainmenu", "\347\262\276\347\241\256\346\220\234\347\264\242", 0));
         pushButton_5->setText(QApplication::translate("Mainmenu", "\346\250\241\347\263\212\346\220\234\347\264\242", 0));
         label_6->setText(QApplication::translate("Mainmenu", "\350\276\223\345\205\245\347\224\265\345\275\261\345\220\215", 0));

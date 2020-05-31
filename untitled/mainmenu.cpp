@@ -5,6 +5,16 @@
 #include <QPushButton>
 #include <QDebug>
 #include <QAction>
+#include "tcpclient.h"
+#include <QHostAddress>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QLineEdit>
+#include <QString>
+#include "common.h"
+#include "user.h"
 
 Mainmenu::Mainmenu(QWidget *parent) :
     QMainWindow(parent),
@@ -125,4 +135,142 @@ void Mainmenu::on_modify_movie_plan_triggered()
 void Mainmenu::on_search_movie_plan_triggered()
 {
 
+}
+
+//修改用户密码
+void Mainmenu::on_pushButton_clicked()
+{
+
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+    User& user = User::get_user();
+
+    //首先判断旧密码 == 用户密码
+    if(QString::compare(user.passWord,QString(ui->lineEdit_old_password->text())))
+    {
+        //错误弹窗
+        return ;
+    }
+    //判断 新密码 == 确认密码
+
+    if(QString::compare(ui->lineEdit_new_password->text(),ui->lineEdit_again_password->text()))
+    {
+        //错误弹窗
+
+        return ;
+    }
+
+
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    //op
+    QJsonArray op;
+    op.append("=");
+
+    obj.insert("op",QJsonValue(op));
+    //tableName
+    obj.insert("tableName",QJsonValue("user"));
+
+    set.insert("passWord",QJsonValue(ui->lineEdit_new_password->text()));
+
+
+    data.insert("uid",QJsonValue(user.uid));
+
+    obj.insert("set",QJsonValue(set));
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+
+}
+
+//修改用户信息
+void Mainmenu::on_pushButton_2_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+    User& user = User::get_user();
+
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    //op
+    QJsonArray op;
+    op.append("=");
+    op.append("=");
+    op.append("=");
+
+    obj.insert("op",QJsonValue(op));
+    //tableName
+    obj.insert("tableName",QJsonValue("user"));
+
+    set.insert("sex",QJsonValue(ui->lineEdit_sex->text()));
+    set.insert("phone",QJsonValue(ui->lineEdit_phone->text()));
+    set.insert("mibao",QJsonValue(ui->lineEdit_mibao->text()));
+
+
+
+    data.insert("uid",QJsonValue(user.uid));
+
+    obj.insert("set",QJsonValue(set));
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+}
+
+void Mainmenu::on_pushButton_3_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+    User& user = User::get_user();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    //op
+    QJsonArray op;
+    op.append("=");
+    op.append("=");
+
+    obj.insert("op",QJsonValue(op));
+    obj.insert("tableName",QJsonValue("user"));
+
+    data.insert("uid",QJsonValue(user.uid));
+    data.insert("passWord",QJsonValue(ui->lineEdit_logout_password->text()));
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
 }

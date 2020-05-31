@@ -46,9 +46,9 @@ public:
     QWidget *widget_3;
     QGridLayout *gridLayout;
     QLabel *label_2;
-    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_account;
     QLabel *label_3;
-    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_password;
     QWidget *widget_4;
     QHBoxLayout *horizontalLayout_2;
     QCheckBox *checkBox;
@@ -64,8 +64,8 @@ public:
     QWidget *widget_6;
     QLabel *label_4;
     QWidget *widget_7;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_4;
+    QLineEdit *lineEdit_userName;
+    QLineEdit *lineEdit_emil;
     QLineEdit *lineEdit_5;
     QLineEdit *lineEdit_6;
     QLineEdit *lineEdit_7;
@@ -120,22 +120,22 @@ public:
 
         gridLayout->addWidget(label_2, 0, 0, 1, 1);
 
-        lineEdit = new QLineEdit(widget_3);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setEchoMode(QLineEdit::Normal);
+        lineEdit_account = new QLineEdit(widget_3);
+        lineEdit_account->setObjectName(QStringLiteral("lineEdit_account"));
+        lineEdit_account->setEchoMode(QLineEdit::Normal);
 
-        gridLayout->addWidget(lineEdit, 0, 1, 1, 1);
+        gridLayout->addWidget(lineEdit_account, 0, 1, 1, 1);
 
         label_3 = new QLabel(widget_3);
         label_3->setObjectName(QStringLiteral("label_3"));
 
         gridLayout->addWidget(label_3, 1, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(widget_3);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setEchoMode(QLineEdit::Password);
+        lineEdit_password = new QLineEdit(widget_3);
+        lineEdit_password->setObjectName(QStringLiteral("lineEdit_password"));
+        lineEdit_password->setEchoMode(QLineEdit::Password);
 
-        gridLayout->addWidget(lineEdit_2, 1, 1, 1, 1);
+        gridLayout->addWidget(lineEdit_password, 1, 1, 1, 1);
 
 
         verticalLayout_2->addWidget(widget_3);
@@ -200,12 +200,12 @@ public:
         widget_7 = new QWidget(widget_6);
         widget_7->setObjectName(QStringLiteral("widget_7"));
         widget_7->setGeometry(QRect(90, 80, 271, 241));
-        lineEdit_3 = new QLineEdit(widget_7);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(10, 0, 221, 31));
-        lineEdit_4 = new QLineEdit(widget_7);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
-        lineEdit_4->setGeometry(QRect(10, 40, 221, 31));
+        lineEdit_userName = new QLineEdit(widget_7);
+        lineEdit_userName->setObjectName(QStringLiteral("lineEdit_userName"));
+        lineEdit_userName->setGeometry(QRect(10, 0, 221, 31));
+        lineEdit_emil = new QLineEdit(widget_7);
+        lineEdit_emil->setObjectName(QStringLiteral("lineEdit_emil"));
+        lineEdit_emil->setGeometry(QRect(10, 40, 221, 31));
         lineEdit_5 = new QLineEdit(widget_7);
         lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
         lineEdit_5->setGeometry(QRect(10, 80, 221, 31));
@@ -246,8 +246,8 @@ public:
         reg_button->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
         login_button->setText(QApplication::translate("Login", "\347\231\273\345\275\225", 0));
         label_4->setText(QApplication::translate("Login", "\346\263\250\345\206\214", 0));
-        lineEdit_3->setPlaceholderText(QApplication::translate("Login", "\350\276\223\345\205\245\345\220\215\347\247\260", 0));
-        lineEdit_4->setPlaceholderText(QApplication::translate("Login", "\347\224\265\345\255\220\351\202\256\347\256\261", 0));
+        lineEdit_userName->setPlaceholderText(QApplication::translate("Login", "\350\276\223\345\205\245\345\220\215\347\247\260", 0));
+        lineEdit_emil->setPlaceholderText(QApplication::translate("Login", "\347\224\265\345\255\220\351\202\256\347\256\261", 0));
         lineEdit_5->setPlaceholderText(QApplication::translate("Login", "\345\257\206\347\240\201", 0));
         lineEdit_6->setPlaceholderText(QApplication::translate("Login", "\347\241\256\350\256\244\345\257\206\347\240\201", 0));
         lineEdit_7->setPlaceholderText(QApplication::translate("Login", "\347\224\265\350\257\235", 0));

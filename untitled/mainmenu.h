@@ -54,6 +54,12 @@ private slots:
 
     void on_search_movie_plan_triggered();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::Mainmenu *ui;
 };

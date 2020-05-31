@@ -50,7 +50,10 @@ SOURCES       = ../untitled/main.cpp \
 		../untitled/login.cpp \
 		../untitled/title_wg.cpp \
 		../untitled/tcpclient.cpp \
-		../untitled/mainmenu.cpp qrc_qrc.cpp \
+		../untitled/mainmenu.cpp \
+		../untitled/accept.cpp \
+		../untitled/common.cpp \
+		../untitled/user.cpp qrc_qrc.cpp \
 		moc_mainwindow.cpp \
 		moc_login.cpp \
 		moc_title_wg.cpp \
@@ -61,6 +64,9 @@ OBJECTS       = main.o \
 		title_wg.o \
 		tcpclient.o \
 		mainmenu.o \
+		accept.o \
+		common.o \
+		user.o \
 		qrc_qrc.o \
 		moc_mainwindow.o \
 		moc_login.o \
@@ -180,7 +186,10 @@ DIST          = /opt/Qt5.3.0/5.3/gcc_64/mkspecs/features/spec_pre.prf \
 		../untitled/login.cpp \
 		../untitled/title_wg.cpp \
 		../untitled/tcpclient.cpp \
-		../untitled/mainmenu.cpp
+		../untitled/mainmenu.cpp \
+		../untitled/accept.cpp \
+		../untitled/common.cpp \
+		../untitled/user.cpp
 QMAKE_TARGET  = untitled
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = untitled
@@ -451,7 +460,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/untitled1.0.0 || mkdir -p .tmp/untitled1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/qrc.qrc .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/mainwindow.h ../untitled/login.h ../untitled/title_wg.h ../untitled/tcpclient.h ../untitled/mainmenu.h .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/main.cpp ../untitled/mainwindow.cpp ../untitled/login.cpp ../untitled/title_wg.cpp ../untitled/tcpclient.cpp ../untitled/mainmenu.cpp .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/mainwindow.ui ../untitled/login.ui ../untitled/title_wg.ui ../untitled/mainmenu.ui .tmp/untitled1.0.0/ && (cd `dirname .tmp/untitled1.0.0` && $(TAR) untitled1.0.0.tar untitled1.0.0 && $(COMPRESS) untitled1.0.0.tar) && $(MOVE) `dirname .tmp/untitled1.0.0`/untitled1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/untitled1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/qrc.qrc .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/mainwindow.h ../untitled/login.h ../untitled/title_wg.h ../untitled/tcpclient.h ../untitled/mainmenu.h ../untitled/accept.h ../untitled/common.h ../untitled/user.h .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/main.cpp ../untitled/mainwindow.cpp ../untitled/login.cpp ../untitled/title_wg.cpp ../untitled/tcpclient.cpp ../untitled/mainmenu.cpp ../untitled/accept.cpp ../untitled/common.cpp ../untitled/user.cpp .tmp/untitled1.0.0/ && $(COPY_FILE) --parents ../untitled/mainwindow.ui ../untitled/login.ui ../untitled/title_wg.ui ../untitled/mainmenu.ui .tmp/untitled1.0.0/ && (cd `dirname .tmp/untitled1.0.0` && $(TAR) untitled1.0.0.tar untitled1.0.0 && $(COMPRESS) untitled1.0.0.tar) && $(MOVE) `dirname .tmp/untitled1.0.0`/untitled1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/untitled1.0.0
 
 
 clean:compiler_clean 
@@ -476,35 +485,35 @@ compiler_rcc_make_all: qrc_qrc.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qrc.cpp
 qrc_qrc.cpp: ../untitled/qrc.qrc \
+		../untitled/Images/upload.png \
+		../untitled/Images/title_user.png \
+		../untitled/Images/title_close.png \
+		../untitled/Images/title_data.png \
 		../untitled/Images/tile_min.png \
+		../untitled/Images/title_normal.png \
 		../untitled/Images/title_min.png \
 		../untitled/Images/tile_file.png \
-		../untitled/Images/logo.ico \
-		../untitled/Images/title_close.png \
-		../untitled/Images/ChMkJlwjWC2IL_xNABSi2nGf5toAAuAJwBcvSoAFKLy959.jpg \
-		../untitled/Images/display_bk.bmp \
-		../untitled/Images/title_normal.png \
-		../untitled/Images/title_bk.jpg \
-		../untitled/Images/login_min.png \
-		../untitled/Images/top1.png \
-		../untitled/Images/login_setting.png \
-		../untitled/Images/Live2D.png \
-		../untitled/Images/top2.png \
-		../untitled/Images/balckButton.png \
-		../untitled/Images/top3.png \
 		../untitled/Images/title_change.png \
+		../untitled/Images/display_bk.bmp \
+		../untitled/Images/logo.ico \
+		../untitled/Images/title_bk.jpg \
+		../untitled/Images/login_setting.png \
+		../untitled/Images/balckButton.png \
+		../untitled/Images/Live2D.png \
+		../untitled/Images/title_share.png \
 		../untitled/Images/tile_hot.png \
+		../untitled/Images/login_min.png \
 		../untitled/Images/login2.jpg \
+		../untitled/Images/tile_close.png \
+		../untitled/Images/ChMkJlwjWC2IL_xNABSi2nGf5toAAuAJwBcvSoAFKLy959.jpg \
+		../untitled/Images/top1.png \
+		../untitled/Images/top2.png \
+		../untitled/Images/login_close.png \
+		../untitled/Images/login_bk.jpg \
+		../untitled/Images/top3.png \
 		../untitled/Images/title_max.png \
 		../untitled/Images/title_bk2.jpg \
-		../untitled/Images/tile_close.png \
-		../untitled/Images/title_bk3.jpg \
-		../untitled/Images/upload.png \
-		../untitled/Images/login_bk.jpg \
-		../untitled/Images/title_share.png \
-		../untitled/Images/login_close.png \
-		../untitled/Images/title_user.png \
-		../untitled/Images/title_data.png
+		../untitled/Images/title_bk3.jpg
 	/opt/Qt5.3.0/5.3/gcc_64/bin/rcc -name qrc ../untitled/qrc.qrc -o qrc_qrc.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_login.cpp moc_title_wg.cpp moc_mainmenu.cpp
@@ -1170,7 +1179,8 @@ main.o: ../untitled/main.cpp ../untitled/mainwindow.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qinputmethod.h \
 		../untitled/login.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QDialog \
-		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qdialog.h
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qdialog.h \
+		../untitled/mainmenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../untitled/main.cpp
 
 mainwindow.o: ../untitled/mainwindow.cpp ../untitled/mainwindow.h \
@@ -1486,7 +1496,16 @@ login.o: ../untitled/login.cpp ../untitled/login.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qabstractsocket.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QDebug \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/QHostAddress \
-		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qhostaddress.h
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonObject \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonDocument \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsondocument.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonValue \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonArray \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsonarray.h \
+		../untitled/common.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o ../untitled/login.cpp
 
 title_wg.o: ../untitled/title_wg.cpp ../untitled/title_wg.h \
@@ -1814,12 +1833,121 @@ mainmenu.o: ../untitled/mainmenu.cpp ../untitled/mainmenu.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qicon.h \
 		ui_mainmenu.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QMenu \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qmenu.h \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QMenuBar \
 		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qmenubar.h \
-		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qmenu.h \
-		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qaction.h \
-		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qactiongroup.h
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QStackedWidget \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qstackedwidget.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QStatusBar \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtWidgets/QWidget \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QDebug \
+		../untitled/tcpclient.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/QTcpSocket \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/QHostAddress \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonObject \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonDocument \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsondocument.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonValue \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QJsonArray \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qjsonarray.h \
+		../untitled/common.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainmenu.o ../untitled/mainmenu.cpp
+
+accept.o: ../untitled/accept.cpp ../untitled/accept.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o accept.o ../untitled/accept.cpp
+
+common.o: ../untitled/common.cpp ../untitled/common.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o common.o ../untitled/common.cpp
+
+user.o: ../untitled/user.cpp ../untitled/user.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/QString \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qfeatures.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qtypetraits.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_armv7.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_armv6.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_armv5.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_ia64.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_mips.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_x86.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_gcc.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qatomic_unix.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.3.0/5.3/gcc_64/include/QtCore/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o user.o ../untitled/user.cpp
 
 qrc_qrc.o: qrc_qrc.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qrc.o qrc_qrc.cpp
