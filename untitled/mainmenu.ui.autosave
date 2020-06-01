@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="modify_password_ui">
      <widget class="QLineEdit" name="lineEdit_old_password">
@@ -476,6 +476,19 @@
        </rect>
       </property>
      </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>40</y>
+        <width>141</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>添加电影</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="get_movie_ui"/>
     <widget class="QWidget" name="modify_movie_inforation">
@@ -509,7 +522,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>120</y>
+        <y>130</y>
         <width>71</width>
         <height>21</height>
        </rect>
@@ -557,31 +570,11 @@
        <string>电影介绍</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_13">
+     <widget class="QLineEdit" name="lineEdit_modify_movie">
       <property name="geometry">
        <rect>
         <x>240</x>
         <y>90</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_14">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>120</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_15">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>160</y>
         <width>113</width>
         <height>25</height>
        </rect>
@@ -618,6 +611,26 @@
       </property>
       <property name="text">
        <string>确认修改</string>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit_modify_r">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>130</y>
+        <width>110</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>160</y>
+        <width>110</width>
+        <height>26</height>
+       </rect>
       </property>
      </widget>
     </widget>

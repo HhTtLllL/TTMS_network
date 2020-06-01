@@ -241,6 +241,7 @@ void Mainmenu::on_pushButton_2_clicked()
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 }
 
+//注销
 void Mainmenu::on_pushButton_3_clicked()
 {
     tcpClient& tcpsocket = tcpClient::get_tcpclient();
@@ -273,4 +274,93 @@ void Mainmenu::on_pushButton_3_clicked()
     post.append(doc.toJson());
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
+}
+
+
+//搜索电影
+void Mainmenu::on_pushButton_4_clicked()
+{
+
+}
+
+//删除电影
+void Mainmenu::on_pushButton_6_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    //op
+    QJsonArray op;
+    op.append("=");
+
+    obj.insert("op",QJsonValue(op));
+    obj.insert("tableName",QJsonValue("movie"));
+    data.insert("mid",QJsonValue("1"));
+
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+}
+
+//增加电影
+void Mainmenu::on_pushButton_7_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonArray data;
+
+    set.insert("mid",QJsonValue("NULL"));
+    set.insert("movieName",QJsonValue(ui->lineEdit_movie_name->text()));
+    set.insert("releaseTime",QJsonValue(ui->dateEdit_releaseTime->text()));
+    set.insert("projectionTime",QJsonValue(ui->dateEdit_projectionTime->text()));
+    set.insert("price",QJsonValue(ui->lineEdit_movie_price->text()));
+    set.insert("introduce",QJsonValue(ui->textEdit_movie_introduce->toPlainText()));
+
+    data.append(set);
+
+    obj.insert("tableName",QJsonValue("movie"));
+
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+
+}
+
+void Mainmenu::on_pushButton_9_clicked()
+{
+
+
+}
+
+//修改电影
+void Mainmenu::on_pushButton_8_clicked()
+{
+
 }

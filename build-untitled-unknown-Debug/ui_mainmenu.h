@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -88,12 +89,12 @@ public:
     QLabel *label_13;
     QLabel *label_14;
     QLabel *label_15;
-    QLineEdit *lineEdit_9;
-    QLineEdit *lineEdit_10;
-    QLineEdit *lineEdit_11;
-    QLineEdit *lineEdit_12;
-    QTextEdit *textEdit;
+    QLineEdit *lineEdit_movie_name;
+    QLineEdit *lineEdit_movie_price;
+    QTextEdit *textEdit_movie_introduce;
     QPushButton *pushButton_7;
+    QDateEdit *dateEdit_releaseTime;
+    QDateEdit *dateEdit_projectionTime;
     QWidget *get_movie_ui;
     QWidget *modify_movie_inforation;
     QLabel *label_16;
@@ -316,24 +317,24 @@ public:
         label_15 = new QLabel(add_movie_ui);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(110, 230, 101, 17));
-        lineEdit_9 = new QLineEdit(add_movie_ui);
-        lineEdit_9->setObjectName(QStringLiteral("lineEdit_9"));
-        lineEdit_9->setGeometry(QRect(200, 90, 113, 25));
-        lineEdit_10 = new QLineEdit(add_movie_ui);
-        lineEdit_10->setObjectName(QStringLiteral("lineEdit_10"));
-        lineEdit_10->setGeometry(QRect(200, 130, 113, 25));
-        lineEdit_11 = new QLineEdit(add_movie_ui);
-        lineEdit_11->setObjectName(QStringLiteral("lineEdit_11"));
-        lineEdit_11->setGeometry(QRect(200, 160, 113, 25));
-        lineEdit_12 = new QLineEdit(add_movie_ui);
-        lineEdit_12->setObjectName(QStringLiteral("lineEdit_12"));
-        lineEdit_12->setGeometry(QRect(200, 190, 113, 25));
-        textEdit = new QTextEdit(add_movie_ui);
-        textEdit->setObjectName(QStringLiteral("textEdit"));
-        textEdit->setGeometry(QRect(200, 230, 271, 101));
+        lineEdit_movie_name = new QLineEdit(add_movie_ui);
+        lineEdit_movie_name->setObjectName(QStringLiteral("lineEdit_movie_name"));
+        lineEdit_movie_name->setGeometry(QRect(200, 90, 113, 25));
+        lineEdit_movie_price = new QLineEdit(add_movie_ui);
+        lineEdit_movie_price->setObjectName(QStringLiteral("lineEdit_movie_price"));
+        lineEdit_movie_price->setGeometry(QRect(200, 190, 113, 25));
+        textEdit_movie_introduce = new QTextEdit(add_movie_ui);
+        textEdit_movie_introduce->setObjectName(QStringLiteral("textEdit_movie_introduce"));
+        textEdit_movie_introduce->setGeometry(QRect(200, 230, 271, 101));
         pushButton_7 = new QPushButton(add_movie_ui);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         pushButton_7->setGeometry(QRect(200, 360, 80, 25));
+        dateEdit_releaseTime = new QDateEdit(add_movie_ui);
+        dateEdit_releaseTime->setObjectName(QStringLiteral("dateEdit_releaseTime"));
+        dateEdit_releaseTime->setGeometry(QRect(200, 130, 110, 26));
+        dateEdit_projectionTime = new QDateEdit(add_movie_ui);
+        dateEdit_projectionTime->setObjectName(QStringLiteral("dateEdit_projectionTime"));
+        dateEdit_projectionTime->setGeometry(QRect(200, 160, 110, 26));
         stackedWidget->addWidget(add_movie_ui);
         get_movie_ui = new QWidget();
         get_movie_ui->setObjectName(QStringLiteral("get_movie_ui"));
@@ -550,7 +551,7 @@ public:
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(5);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
