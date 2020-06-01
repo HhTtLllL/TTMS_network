@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDateEdit>
+#include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -126,7 +127,7 @@ public:
     QWidget *delete_theater_ui;
     QLabel *label_27;
     QLabel *label_28;
-    QLineEdit *lineEdit_20;
+    QLineEdit *lineEdit_delete_studioName;
     QPushButton *pushButton_10;
     QWidget *get_theater_ui;
     QWidget *modify_theater_ui;
@@ -135,22 +136,22 @@ public:
     QLabel *label_31;
     QLabel *label_32;
     QLabel *label_33;
-    QLineEdit *lineEdit_21;
-    QLineEdit *lineEdit_22;
-    QLineEdit *lineEdit_23;
-    QTextEdit *textEdit_4;
+    QLineEdit *lineEdit_modify_studioname;
+    QLineEdit *lineEdit_modify_row;
+    QLineEdit *lineEdit_modify_col;
+    QTextEdit *textEdit_modify_studiointrouduce;
     QPushButton *pushButton_11;
+    QLabel *label_42;
+    QLineEdit *lineEdit_modify_old_studioname;
     QWidget *add_movie_plan_ui;
     QLabel *label_34;
     QLabel *label_35;
     QLabel *label_36;
     QLabel *label_37;
-    QLabel *label_38;
-    QLineEdit *lineEdit_24;
-    QLineEdit *lineEdit_25;
-    QLineEdit *lineEdit_26;
-    QLineEdit *lineEdit_27;
+    QLineEdit *lineEdit_schedule_studio;
+    QLineEdit *lineEdit_schedule_movieName;
     QPushButton *pushButton_12;
+    QDateTimeEdit *dateTimeEdit_schedule_datatime;
     QWidget *widget;
     QWidget *page_5;
     QMenuBar *menubar;
@@ -209,7 +210,7 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(60, 60, 674, 431));
+        stackedWidget->setGeometry(QRect(60, 80, 674, 431));
         modify_password_ui = new QWidget();
         modify_password_ui->setObjectName(QStringLiteral("modify_password_ui"));
         lineEdit_old_password = new QLineEdit(modify_password_ui);
@@ -431,9 +432,9 @@ public:
         label_28 = new QLabel(delete_theater_ui);
         label_28->setObjectName(QStringLiteral("label_28"));
         label_28->setGeometry(QRect(100, 110, 53, 17));
-        lineEdit_20 = new QLineEdit(delete_theater_ui);
-        lineEdit_20->setObjectName(QStringLiteral("lineEdit_20"));
-        lineEdit_20->setGeometry(QRect(190, 110, 113, 25));
+        lineEdit_delete_studioName = new QLineEdit(delete_theater_ui);
+        lineEdit_delete_studioName->setObjectName(QStringLiteral("lineEdit_delete_studioName"));
+        lineEdit_delete_studioName->setGeometry(QRect(190, 110, 113, 25));
         pushButton_10 = new QPushButton(delete_theater_ui);
         pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
         pushButton_10->setGeometry(QRect(170, 310, 80, 25));
@@ -445,7 +446,7 @@ public:
         modify_theater_ui->setObjectName(QStringLiteral("modify_theater_ui"));
         label_29 = new QLabel(modify_theater_ui);
         label_29->setObjectName(QStringLiteral("label_29"));
-        label_29->setGeometry(QRect(170, 50, 71, 17));
+        label_29->setGeometry(QRect(230, 10, 71, 17));
         label_30 = new QLabel(modify_theater_ui);
         label_30->setObjectName(QStringLiteral("label_30"));
         label_30->setGeometry(QRect(130, 90, 71, 17));
@@ -458,21 +459,27 @@ public:
         label_33 = new QLabel(modify_theater_ui);
         label_33->setObjectName(QStringLiteral("label_33"));
         label_33->setGeometry(QRect(130, 220, 71, 17));
-        lineEdit_21 = new QLineEdit(modify_theater_ui);
-        lineEdit_21->setObjectName(QStringLiteral("lineEdit_21"));
-        lineEdit_21->setGeometry(QRect(210, 90, 113, 25));
-        lineEdit_22 = new QLineEdit(modify_theater_ui);
-        lineEdit_22->setObjectName(QStringLiteral("lineEdit_22"));
-        lineEdit_22->setGeometry(QRect(210, 140, 113, 25));
-        lineEdit_23 = new QLineEdit(modify_theater_ui);
-        lineEdit_23->setObjectName(QStringLiteral("lineEdit_23"));
-        lineEdit_23->setGeometry(QRect(210, 180, 113, 25));
-        textEdit_4 = new QTextEdit(modify_theater_ui);
-        textEdit_4->setObjectName(QStringLiteral("textEdit_4"));
-        textEdit_4->setGeometry(QRect(210, 220, 191, 131));
+        lineEdit_modify_studioname = new QLineEdit(modify_theater_ui);
+        lineEdit_modify_studioname->setObjectName(QStringLiteral("lineEdit_modify_studioname"));
+        lineEdit_modify_studioname->setGeometry(QRect(210, 90, 113, 25));
+        lineEdit_modify_row = new QLineEdit(modify_theater_ui);
+        lineEdit_modify_row->setObjectName(QStringLiteral("lineEdit_modify_row"));
+        lineEdit_modify_row->setGeometry(QRect(210, 140, 113, 25));
+        lineEdit_modify_col = new QLineEdit(modify_theater_ui);
+        lineEdit_modify_col->setObjectName(QStringLiteral("lineEdit_modify_col"));
+        lineEdit_modify_col->setGeometry(QRect(210, 180, 113, 25));
+        textEdit_modify_studiointrouduce = new QTextEdit(modify_theater_ui);
+        textEdit_modify_studiointrouduce->setObjectName(QStringLiteral("textEdit_modify_studiointrouduce"));
+        textEdit_modify_studiointrouduce->setGeometry(QRect(210, 220, 191, 131));
         pushButton_11 = new QPushButton(modify_theater_ui);
         pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
         pushButton_11->setGeometry(QRect(200, 380, 80, 25));
+        label_42 = new QLabel(modify_theater_ui);
+        label_42->setObjectName(QStringLiteral("label_42"));
+        label_42->setGeometry(QRect(130, 50, 81, 17));
+        lineEdit_modify_old_studioname = new QLineEdit(modify_theater_ui);
+        lineEdit_modify_old_studioname->setObjectName(QStringLiteral("lineEdit_modify_old_studioname"));
+        lineEdit_modify_old_studioname->setGeometry(QRect(210, 50, 113, 25));
         stackedWidget->addWidget(modify_theater_ui);
         add_movie_plan_ui = new QWidget();
         add_movie_plan_ui->setObjectName(QStringLiteral("add_movie_plan_ui"));
@@ -488,24 +495,18 @@ public:
         label_37 = new QLabel(add_movie_plan_ui);
         label_37->setObjectName(QStringLiteral("label_37"));
         label_37->setGeometry(QRect(90, 170, 71, 17));
-        label_38 = new QLabel(add_movie_plan_ui);
-        label_38->setObjectName(QStringLiteral("label_38"));
-        label_38->setGeometry(QRect(90, 220, 71, 17));
-        lineEdit_24 = new QLineEdit(add_movie_plan_ui);
-        lineEdit_24->setObjectName(QStringLiteral("lineEdit_24"));
-        lineEdit_24->setGeometry(QRect(200, 90, 113, 25));
-        lineEdit_25 = new QLineEdit(add_movie_plan_ui);
-        lineEdit_25->setObjectName(QStringLiteral("lineEdit_25"));
-        lineEdit_25->setGeometry(QRect(200, 130, 113, 25));
-        lineEdit_26 = new QLineEdit(add_movie_plan_ui);
-        lineEdit_26->setObjectName(QStringLiteral("lineEdit_26"));
-        lineEdit_26->setGeometry(QRect(200, 170, 113, 25));
-        lineEdit_27 = new QLineEdit(add_movie_plan_ui);
-        lineEdit_27->setObjectName(QStringLiteral("lineEdit_27"));
-        lineEdit_27->setGeometry(QRect(200, 220, 113, 25));
+        lineEdit_schedule_studio = new QLineEdit(add_movie_plan_ui);
+        lineEdit_schedule_studio->setObjectName(QStringLiteral("lineEdit_schedule_studio"));
+        lineEdit_schedule_studio->setGeometry(QRect(200, 90, 113, 25));
+        lineEdit_schedule_movieName = new QLineEdit(add_movie_plan_ui);
+        lineEdit_schedule_movieName->setObjectName(QStringLiteral("lineEdit_schedule_movieName"));
+        lineEdit_schedule_movieName->setGeometry(QRect(200, 130, 113, 25));
         pushButton_12 = new QPushButton(add_movie_plan_ui);
         pushButton_12->setObjectName(QStringLiteral("pushButton_12"));
-        pushButton_12->setGeometry(QRect(170, 300, 101, 41));
+        pushButton_12->setGeometry(QRect(180, 270, 101, 41));
+        dateTimeEdit_schedule_datatime = new QDateTimeEdit(add_movie_plan_ui);
+        dateTimeEdit_schedule_datatime->setObjectName(QStringLiteral("dateTimeEdit_schedule_datatime"));
+        dateTimeEdit_schedule_datatime->setGeometry(QRect(190, 170, 194, 26));
         stackedWidget->addWidget(add_movie_plan_ui);
         widget = new QWidget();
         widget->setObjectName(QStringLiteral("widget"));
@@ -563,7 +564,7 @@ public:
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(8);
+        stackedWidget->setCurrentIndex(12);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
@@ -633,16 +634,16 @@ public:
         label_28->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
         pushButton_10->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\345\210\240\351\231\244", 0));
         label_29->setText(QApplication::translate("Mainmenu", "\344\277\256\346\224\271\345\275\261\345\216\205", 0));
-        label_30->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
+        label_30->setText(QApplication::translate("Mainmenu", "\346\226\260\345\275\261\345\216\205\345\220\215", 0));
         label_31->setText(QApplication::translate("Mainmenu", "\350\241\214", 0));
         label_32->setText(QApplication::translate("Mainmenu", "\345\210\227", 0));
         label_33->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\344\273\213\347\273\215", 0));
         pushButton_11->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\344\277\256\346\224\271", 0));
+        label_42->setText(QApplication::translate("Mainmenu", "\345\216\237\345\275\261\345\216\205\345\220\215", 0));
         label_34->setText(QApplication::translate("Mainmenu", "\345\242\236\345\212\240\347\224\265\345\275\261\350\256\241\345\210\222", 0));
         label_35->setText(QApplication::translate("Mainmenu", "\346\211\200\345\234\250\345\275\261\345\216\205", 0));
         label_36->setText(QApplication::translate("Mainmenu", "\344\270\212\346\230\240\347\224\265\345\275\261", 0));
         label_37->setText(QApplication::translate("Mainmenu", "\344\270\212\346\230\240\346\227\266\351\227\264", 0));
-        label_38->setText(QApplication::translate("Mainmenu", "\344\270\213\346\230\240\346\227\266\351\227\264", 0));
         pushButton_12->setText(QApplication::translate("Mainmenu", "\347\241\256\345\256\232\345\242\236\345\212\240", 0));
         menu->setTitle(QApplication::translate("Mainmenu", "\350\217\234\345\215\225", 0));
         movie_operation->setTitle(QApplication::translate("Mainmenu", "\347\224\265\345\275\261\346\223\215\344\275\234", 0));

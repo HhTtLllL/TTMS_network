@@ -432,8 +432,110 @@ void Mainmenu::on_pushButton_9_clicked()
     post.append(doc.toJson());
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
-
-
-
 }
 
+//删除影厅
+void Mainmenu::on_pushButton_10_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    QJsonArray op;
+    op.append("=");
+
+    data.insert("studioName",QJsonValue(ui->lineEdit_delete_studioName->text()));
+
+
+    obj.insert("tableName",QJsonValue("studio"));
+    obj.insert("op",QJsonValue(op));
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+}
+
+//修改影厅
+void Mainmenu::on_pushButton_11_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject  data;
+
+    QJsonArray op;
+    op.append("=");
+    op.append("=");
+    op.append("=");
+    op.append("=");
+
+    set.insert("studioName",QJsonValue(ui->lineEdit_modify_studioname->text()));
+    set.insert("row",QJsonValue(ui->lineEdit_modify_row->text()));
+    set.insert("col",QJsonValue(ui->lineEdit_modify_col->text()));
+    set.insert("introduce",QJsonValue(ui->textEdit_modify_studiointrouduce->toPlainText()));
+
+
+    obj.insert("tableName",QJsonValue("studio"));
+
+    data.insert("studioName",QJsonValue(ui->lineEdit_old_moveiname->text()));
+
+    obj.insert("set",QJsonValue(set));
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+}
+
+//增加电影计划
+void Mainmenu::on_pushButton_12_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonArray data;
+
+    set.insert("schid",QJsonValue("NULL"));
+    set.insert("studioName",QJsonValue(ui->lineEdit_schedule_studio->text()));
+    set.insert("movieName",QJsonValue(ui->lineEdit_schedule_movieName->text()));
+    set.insert("datetime",QJsonValue(ui->dateTimeEdit_schedule_datatime->text()));
+
+    data.append(set);
+
+    obj.insert("tableName",QJsonValue("schedule"));
+
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString post;
+    post.append("POST /  \r\n");
+    post.append(Content_Length);
+    post.append(QString::number(sizeof(obj)));
+    post.append("\r\n\r\n");
+
+    post.append(doc.toJson());
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+}
