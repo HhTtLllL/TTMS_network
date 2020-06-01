@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>70</y>
+      <x>60</x>
+      <y>60</y>
       <width>674</width>
       <height>431</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="modify_password_ui">
      <widget class="QLineEdit" name="lineEdit_old_password">
@@ -323,7 +323,7 @@
        <string>删除电影</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_8">
+     <widget class="QLineEdit" name="lineEdit_delete_moviename">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -476,14 +476,27 @@
        </rect>
       </property>
      </widget>
+     <widget class="QLabel" name="label_40">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>40</y>
+        <width>141</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>添加电影</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="get_movie_ui"/>
     <widget class="QWidget" name="modify_movie_inforation">
      <widget class="QLabel" name="label_16">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>40</y>
+        <x>190</x>
+        <y>20</y>
         <width>161</width>
         <height>17</height>
        </rect>
@@ -495,21 +508,21 @@
      <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>86</y>
+        <x>140</x>
+        <y>90</y>
         <width>71</width>
         <height>21</height>
        </rect>
       </property>
       <property name="text">
-       <string>电影名</string>
+       <string>新电影名</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_18">
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>120</y>
+        <y>130</y>
         <width>71</width>
         <height>21</height>
        </rect>
@@ -557,37 +570,17 @@
        <string>电影介绍</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_13">
+     <widget class="QLineEdit" name="lineEdit_modify_movie">
       <property name="geometry">
        <rect>
-        <x>240</x>
+        <x>230</x>
         <y>90</y>
         <width>113</width>
         <height>25</height>
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_14">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>120</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_15">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>160</y>
-        <width>113</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_16">
+     <widget class="QLineEdit" name="lineEdit_modify_price">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -597,7 +590,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QTextEdit" name="textEdit_2">
+     <widget class="QTextEdit" name="textEdit_modify_introduce">
       <property name="geometry">
        <rect>
         <x>240</x>
@@ -620,13 +613,56 @@
        <string>确认修改</string>
       </property>
      </widget>
+     <widget class="QDateEdit" name="dateEdit_modify_releaseTime">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>130</y>
+        <width>110</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit_modify_projectionTme">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>160</y>
+        <width>110</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_41">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>60</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>原电影名</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_old_moveiname">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>60</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="add_theater_ui">
      <widget class="QLabel" name="label_22">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>40</y>
+        <x>190</x>
+        <y>20</y>
         <width>101</width>
         <height>21</height>
        </rect>
@@ -687,7 +723,7 @@
        <string>影厅介绍</string>
       </property>
      </widget>
-     <widget class="QTextEdit" name="textEdit_3">
+     <widget class="QTextEdit" name="textEdit_studio_introduce">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -697,7 +733,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_17">
+     <widget class="QLineEdit" name="lineEdit_studioname">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -707,7 +743,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_18">
+     <widget class="QLineEdit" name="lineEdit_row">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -717,7 +753,7 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_19">
+     <widget class="QLineEdit" name="lineEdit_col">
       <property name="geometry">
        <rect>
         <x>190</x>
