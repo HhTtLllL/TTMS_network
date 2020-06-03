@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>80</y>
+      <x>50</x>
+      <y>50</y>
       <width>674</width>
       <height>431</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>12</number>
+     <number>10</number>
     </property>
     <widget class="QWidget" name="modify_password_ui">
      <widget class="QLineEdit" name="lineEdit_old_password">
@@ -490,7 +490,21 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="get_movie_ui"/>
+    <widget class="QWidget" name="get_movie_ui">
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>20</y>
+        <width>221</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>电影显示</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="modify_movie_inforation">
      <widget class="QLabel" name="label_16">
       <property name="geometry">
@@ -828,7 +842,18 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="get_theater_ui"/>
+    <widget class="QWidget" name="get_theater_ui">
+     <widget class="QTableWidget" name="tableWidget_studio">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>641</width>
+        <height>431</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="modify_theater_ui">
      <widget class="QLabel" name="label_29">
       <property name="geometry">
@@ -1070,7 +1095,7 @@
      </widget>
     </widget>
     <widget class="QWidget" name="widget"/>
-    <widget class="QWidget" name="page_5"/>
+    <widget class="QWidget" name="widget_2"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

@@ -15,6 +15,10 @@
 #include <QString>
 #include "common.h"
 #include "user.h"
+#include <QTableView>
+#include <QStandardItem>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
 
 Mainmenu::Mainmenu(QWidget *parent) :
     QMainWindow(parent),
@@ -89,7 +93,10 @@ void Mainmenu::on_delete_theater_triggered()
 //获取全部影厅
 void Mainmenu::on_get_theater_triggered()
 {
-
+    ui->tableWidget_studio->setRowCount(5);
+    ui->tableWidget_studio->setColumnCount(6);
+    ui->tableWidget_studio->setAlternatingRowColors(true);
+    //ui->stackedWidget->setCurrentWidget(ui->get_theater_ui);
 }
 //修改影厅信息
 void Mainmenu::on_modify_theater_triggered()
@@ -99,7 +106,7 @@ void Mainmenu::on_modify_theater_triggered()
 //增加座位
 void Mainmenu::on_add_seat_triggered()
 {
-      ui->stackedWidget->setCurrentWidget(ui->add_movie_plan_ui);
+
 }
 //删除座位
 void Mainmenu::on_delete_seat_triggered()
@@ -119,7 +126,7 @@ void Mainmenu::on_get_seat_triggered()
 //增加电影计划
 void Mainmenu::on_add_movie_plan_triggered()
 {
-
+      ui->stackedWidget->setCurrentWidget(ui->add_movie_plan_ui);
 }
 //删除电影计划
 void Mainmenu::on_delete_movie_plan_triggered()

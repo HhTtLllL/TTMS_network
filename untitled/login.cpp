@@ -57,8 +57,8 @@ void Login::paintEvent(QPaintEvent *event)
 //登录
 void Login::on_login_button_clicked()
 {
-    QString ip = "121.89.171.193";
-    qint16 port = 4507;
+    QString ip = "127.0.0.1";
+    qint16 port = 8888;
 
 //121.89.171.193
     //QTcpSocket tcpsocket;
@@ -95,19 +95,23 @@ void Login::on_login_button_clicked()
 
 
     obj.insert("data",QJsonValue(sub));
-    QJsonDocument doc(obj);
+    int nsize = obj.length();
 
-    int size = sizeof(obj);
+    qDebug() << "nsize  = " << nsize;
+    QJsonDocument doc(obj);
+    QString json = doc.toJson();
+
+    int size = json.length();
     qDebug() << size;
 
     QString post;
     post.append("POST / 18 \r\n");
-    post.append(Content_Length);
+    post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
-
+    post.append(json);
+    qDebug() << "sizeof = " << sizeof(doc.toJson());
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 
    /* connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
@@ -149,9 +153,11 @@ void Login::on_pushButton_clicked()
 
     obj.insert("data",QJsonValue(sub));
 
-    QJsonDocument doc(obj);
 
-    int size = sizeof(obj);
+    QJsonDocument doc(obj);
+    QString json = doc.toJson();
+
+    int size = json.size();
     qDebug() << size;
 
     QString post;

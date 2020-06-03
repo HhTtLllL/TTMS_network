@@ -24,6 +24,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
@@ -98,6 +99,7 @@ public:
     QDateEdit *dateEdit_projectionTime;
     QLabel *label_40;
     QWidget *get_movie_ui;
+    QLabel *label_38;
     QWidget *modify_movie_inforation;
     QLabel *label_16;
     QLabel *label_17;
@@ -130,6 +132,7 @@ public:
     QLineEdit *lineEdit_delete_studioName;
     QPushButton *pushButton_10;
     QWidget *get_theater_ui;
+    QTableWidget *tableWidget_studio;
     QWidget *modify_theater_ui;
     QLabel *label_29;
     QLabel *label_30;
@@ -153,7 +156,7 @@ public:
     QPushButton *pushButton_12;
     QDateTimeEdit *dateTimeEdit_schedule_datatime;
     QWidget *widget;
-    QWidget *page_5;
+    QWidget *widget_2;
     QMenuBar *menubar;
     QMenu *menu;
     QMenu *movie_operation;
@@ -210,7 +213,7 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(60, 80, 674, 431));
+        stackedWidget->setGeometry(QRect(50, 50, 674, 431));
         modify_password_ui = new QWidget();
         modify_password_ui->setObjectName(QStringLiteral("modify_password_ui"));
         lineEdit_old_password = new QLineEdit(modify_password_ui);
@@ -345,6 +348,9 @@ public:
         stackedWidget->addWidget(add_movie_ui);
         get_movie_ui = new QWidget();
         get_movie_ui->setObjectName(QStringLiteral("get_movie_ui"));
+        label_38 = new QLabel(get_movie_ui);
+        label_38->setObjectName(QStringLiteral("label_38"));
+        label_38->setGeometry(QRect(200, 20, 221, 17));
         stackedWidget->addWidget(get_movie_ui);
         modify_movie_inforation = new QWidget();
         modify_movie_inforation->setObjectName(QStringLiteral("modify_movie_inforation"));
@@ -441,6 +447,9 @@ public:
         stackedWidget->addWidget(delete_theater_ui);
         get_theater_ui = new QWidget();
         get_theater_ui->setObjectName(QStringLiteral("get_theater_ui"));
+        tableWidget_studio = new QTableWidget(get_theater_ui);
+        tableWidget_studio->setObjectName(QStringLiteral("tableWidget_studio"));
+        tableWidget_studio->setGeometry(QRect(10, 0, 641, 431));
         stackedWidget->addWidget(get_theater_ui);
         modify_theater_ui = new QWidget();
         modify_theater_ui->setObjectName(QStringLiteral("modify_theater_ui"));
@@ -511,9 +520,9 @@ public:
         widget = new QWidget();
         widget->setObjectName(QStringLiteral("widget"));
         stackedWidget->addWidget(widget);
-        page_5 = new QWidget();
-        page_5->setObjectName(QStringLiteral("page_5"));
-        stackedWidget->addWidget(page_5);
+        widget_2 = new QWidget();
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        stackedWidget->addWidget(widget_2);
         Mainmenu->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Mainmenu);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -564,7 +573,7 @@ public:
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(12);
+        stackedWidget->setCurrentIndex(10);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
@@ -616,6 +625,7 @@ public:
         label_15->setText(QApplication::translate("Mainmenu", "\347\224\265\345\275\261\344\273\213\347\273\215", 0));
         pushButton_7->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\346\267\273\345\212\240", 0));
         label_40->setText(QApplication::translate("Mainmenu", "\346\267\273\345\212\240\347\224\265\345\275\261", 0));
+        label_38->setText(QApplication::translate("Mainmenu", "\347\224\265\345\275\261\346\230\276\347\244\272", 0));
         label_16->setText(QApplication::translate("Mainmenu", "\344\277\256\346\224\271\347\224\265\345\275\261\344\277\241\346\201\257", 0));
         label_17->setText(QApplication::translate("Mainmenu", "\346\226\260\347\224\265\345\275\261\345\220\215", 0));
         label_18->setText(QApplication::translate("Mainmenu", "\344\270\212\346\230\240\346\227\266\351\227\264", 0));
