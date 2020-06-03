@@ -2,6 +2,7 @@
 #include <QApplication>
 #include "login.h"
 #include "mainmenu.h"
+#include "accept.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,8 +10,11 @@ int main(int argc, char *argv[])
     Login w;
     w.show();
 
+
     Mainmenu w2;
-    w2.show();
+   //w2.show();
+
+    accept ac;
 
 
     return a.exec();

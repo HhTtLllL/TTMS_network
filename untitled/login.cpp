@@ -57,8 +57,8 @@ void Login::paintEvent(QPaintEvent *event)
 //登录
 void Login::on_login_button_clicked()
 {
-    QString ip = "127.0.0.1";
-    qint16 port = 8888;
+    QString ip = "121.89.171.193";
+    qint16 port = 4507;
 
 
     //QTcpSocket tcpsocket;
@@ -101,7 +101,7 @@ void Login::on_login_button_clicked()
     qDebug() << size;
 
     QString post;
-    post.append("POST /  \r\n");
+    post.append("POST / 18 \r\n");
     post.append(Content_Length);
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -109,6 +109,14 @@ void Login::on_login_button_clicked()
     post.append(doc.toJson());
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+   /* connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
+    {
+        qDebug() << "接受_1";
+
+    });*/
+
+
 
 }
 
@@ -147,7 +155,7 @@ void Login::on_pushButton_clicked()
     qDebug() << size;
 
     QString post;
-    post.append("POST /  \r\n");
+    post.append("POST / 2 \r\n");
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
