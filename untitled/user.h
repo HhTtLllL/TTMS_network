@@ -4,7 +4,7 @@
 #include <QString>
 #include <QDebug>
 
-enum sex {W,M};
+enum Sex {W,M};
 
 class User
 {
@@ -17,6 +17,7 @@ public:
     QString phoneNumber;
     QString mibao;
     int power;
+    Sex sex;
 
 
     User(const User&)=delete;

@@ -60,7 +60,7 @@ void Login::on_login_button_clicked()
     QString ip = "121.89.171.193";
     qint16 port = 4507;
 
-
+//121.89.171.193
     //QTcpSocket tcpsocket;
 
 
@@ -129,7 +129,7 @@ void Login::on_reg_button_clicked()
 //提交注册信息
 void Login::on_pushButton_clicked()
 {
-    QString ip = "127.0.0.1";
+    QString ip = "121.89.171.193";
     qint16 port = 8888;
 
     tcpClient& tcpsocket = tcpClient::get_tcpclient();
