@@ -69,7 +69,6 @@ void Mainmenu::on_delete_movie_triggered()
 void Mainmenu::on_add_movie_triggered()
 {
     ui->stackedWidget->setCurrentWidget(ui->add_movie_ui);
-
 }
 
 //修改电影信息
@@ -175,7 +174,7 @@ void Mainmenu::on_add_movie_plan_triggered()
 //删除电影计划
 void Mainmenu::on_delete_movie_plan_triggered()
 {
-    ui->stackedWidget->setCurrentWidget(ui->delete_movie_plan_ui);
+    ui->stackedWidget->setCurrentWidget(ui->delete_schedule_ui);
 }
 //修改电影计划
 void Mainmenu::on_modify_movie_plan_triggered()
@@ -780,8 +779,7 @@ void Mainmenu::on_pushButton_15_clicked()
 
     QJsonArray op;
     op.append("=");
-    op.append("=");
-    op.append("=");
+
     obj.insert("op",QJsonValue(op));
 
 
@@ -789,9 +787,7 @@ void Mainmenu::on_pushButton_15_clicked()
     set.insert("status",QJsonValue(ui->lineEdit_modify_seat_status->text().toInt()));
     obj.insert("set",QJsonValue(set));
 
-    data.insert("studioName",QJsonValue(ui->lineEdit_modify_seat_studioName->text()));
-    data.insert("row",QJsonValue(ui->lineEdit_modify_seat_row->text().toInt()));
-    data.insert("col",QJsonValue(ui->lineEdit_modify_seat_col->text().toInt()));
+    data.insert("seatid",QJsonValue(ui->lineEdit_modify_seatid->text()));
 
     obj.insert("tableName",QJsonValue("seat"));
 
@@ -836,7 +832,7 @@ void Mainmenu::on_pushButton_41_clicked()
      obj.insert("what",QJsonValue(what));
 
 
-     data.insert("studioName",QJsonValue(ui->lineEdit_get_seat_studioName->text()));
+     data.insert("studioid",QJsonValue(ui->lineEdit_get_seat_studioid->text().toInt()));
 
      obj.insert("tableName",QJsonValue("seat"));
 
@@ -902,8 +898,11 @@ void Mainmenu::get_studio()
 }
 
 //删除电影计划ID
+/*
 void Mainmenu::on_pushButton_42_clicked()
 {
+
+    qDebug() << "点击删除电影计划";
     tcpClient& tcpsocket = tcpClient::get_tcpclient();
 
     QJsonObject obj;
@@ -940,4 +939,53 @@ void Mainmenu::on_pushButton_42_clicked()
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 
+
+    qDebug() << "发送";
+
+}*/
+
+
+void Mainmenu::on_pushButton_43_clicked()
+{
+
+
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    QJsonArray op;
+    op.append("=");
+    obj.insert("op",QJsonValue(op));
+
+    data.insert("schid",QJsonValue(ui->lineEdit_delete_scheduleid->text().toInt()));
+
+
+
+
+    obj.insert("tableName",QJsonValue("schedule"));
+
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
+    QString post;
+    int num = accept::DELETESCHEDULE;
+    post.sprintf("POST /?%d \r\n",num);
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(json);
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+
+    qDebug() << "发送";
+    qDebug() << "点击删除电影计划";
 }

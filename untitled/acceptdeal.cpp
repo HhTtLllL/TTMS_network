@@ -121,19 +121,16 @@ void Acceptdeal::deal()
     }
     else if(pos.toInt() == Acceptdeal::QUERYSEAT) //获取座位
     {
-
+        get_seatBystudioid(obj);
     }
     else if(pos.toInt() == Acceptdeal::INSERTSCHEDULE) //增加电影计划
     {
-
-    }
-    else if(pos.toInt() == Acceptdeal::UPDATESCHEDULE) //修改电影计划
-    {
+        add_schedule(obj);
 
     }
     else if(pos.toInt() == Acceptdeal::DELETESCHEDULE) //删除电影计划
     {
-
+        delete_schedule(obj);
     }
     else if(pos.toInt() == Acceptdeal::QUERYSCHEDULE)  //查询演出计划
     {
@@ -532,7 +529,96 @@ void Acceptdeal::get_schedule(QJsonObject respon)
     }
 
     ui->tableView_studio->setModel(model);
+}
+
+void Acceptdeal::add_schedule(QJsonObject respon)
+{
+    if( respon.value("state").toInt() == 400 )
+    {
+        //修改失败
+        qDebug() << "修改失败";
+        return ;
+    }
+
+    //修改成功
+}
+
+void Acceptdeal::delete_schedule(QJsonObject respon)
+{
+    if( respon.value("state").toInt() == 400 )
+    {
+        //修改失败
+        qDebug() << "修改失败";
+        return ;
+    }
+
+    //修改成功
+}
+
+void Acceptdeal::get_seatBystudioid(QJsonObject respon)
+{
+    if( respon.value("state").toInt() == 400 )
+    {
+        //获取失败
+        qDebug() << "获取失败";
+        return ;
+    }
+
+    //先获取行和列
+    QJsonArray data;
+    data = respon.value("data").toArray();
+
+    int max = data.size();
+
+    QJsonObject sub = data.at(max-1).toObject();
+    QString srow = sub.value("row").toString();
+    QString scol = sub.value("col").toString();
+
+
+  /*  for(int i = 0 ; i < max ; i ++ )
+    {
+         QJsonObject sub = data.at(i).toObject();
+         qDebug() << sub.value("row").toString() << " " << sub.value("row").toString();
+
+         QString row = sub.value("row").toString();
+
+         qDebug() << "row_int = " << row.toInt();
+
+    }*/
 
 
 
+    int maxRow = srow.toInt();
+    int maxCol = scol.toInt();
+
+
+    qDebug() << "获取成功" << maxRow << " " << maxCol;
+    QStandardItemModel* model = new QStandardItemModel();
+    model->setColumnCount(maxCol);
+    model->setRowCount(maxRow);
+
+    qDebug() << data.size();
+
+    int num = 0;
+
+    for(int i = 0 ; i < maxCol ; i ++ )
+    {
+        for(int j = 0 ; j < maxRow ; j ++ )
+        {
+            QJsonObject sub = data.at(num).toObject();
+            QStandardItem* item = new QStandardItem(sub.value("seatid").toString());
+            if(sub.value("status").toString() == "1")
+            {
+                 item->setFont(QFont("song",14));
+                 qDebug() << " 状态";
+            }
+
+            model->setItem(i,j,item);
+
+
+            num++;
+        }
+    }
+
+    ui->tableView_studio->setModel(model);
 }

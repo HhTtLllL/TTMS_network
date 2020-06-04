@@ -99,6 +99,9 @@ public:
     void modify_seat(QJsonObject respon); //修改座位
     void get_seat(QJsonObject respon); //获取座位
     void get_schedule(QJsonObject respon); //获取电影计划
+    void add_schedule(QJsonObject respon); //增加电影计划
+    void delete_schedule(QJsonObject respon); //删除电影计划
+    void get_seatBystudioid(QJsonObject respon); //获取座位 根据演出厅
 
     Mainmenu w2;
 
