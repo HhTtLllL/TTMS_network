@@ -9,6 +9,7 @@
 #include <QJsonArray>
 #include <QLineEdit>
 #include "common.h"
+#include "accept.h"
 
 Login::Login(QWidget *parent) :
     QDialog(parent),
@@ -57,8 +58,8 @@ void Login::paintEvent(QPaintEvent *event)
 //登录
 void Login::on_login_button_clicked()
 {
-    QString ip = "127.0.0.1";
-    qint16 port = 8888;
+    QString ip = "121.89.171.193";
+    qint16 port = 4507;
 
 //121.89.171.193
     //QTcpSocket tcpsocket;
@@ -91,36 +92,30 @@ void Login::on_login_button_clicked()
     obj.insert("tableName",QJsonValue("user"));
 
     sub.insert("uid",QJsonValue(ui->lineEdit_account->text()));
-    sub.insert("passWord",QJsonValue(ui->lineEdit_password->text()));
+    QString pass = "'";
+    pass += ui->lineEdit_password->text();
+    pass += "'";
+    sub.insert("passWord",QJsonValue(pass));
+
 
 
     obj.insert("data",QJsonValue(sub));
-    int nsize = obj.length();
 
-    qDebug() << "nsize  = " << nsize;
     QJsonDocument doc(obj);
-    QString json = doc.toJson();
+    QString json = doc.toJson(QJsonDocument::Compact);
 
     int size = json.length();
-    qDebug() << size;
 
     QString post;
-    post.append("POST / 18 \r\n");
+    int num = accept::QUERYUSER;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
 
     post.append(json);
-    qDebug() << "sizeof = " << sizeof(doc.toJson());
+
     tcpsocket.tcpSocket->write(post.toUtf8().data());
-
-   /* connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
-    {
-        qDebug() << "接受_1";
-
-    });*/
-
-
 
 }
 
@@ -155,13 +150,12 @@ void Login::on_pushButton_clicked()
 
 
     QJsonDocument doc(obj);
-    QString json = doc.toJson();
+    QString json = doc.toJson(QJsonDocument::Compact);
 
-    int size = json.size();
-    qDebug() << size;
+    int size = json.length();
 
     QString post;
-    post.append("POST / 2 \r\n");
+    post.append("POST /?2 \r\n");
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");

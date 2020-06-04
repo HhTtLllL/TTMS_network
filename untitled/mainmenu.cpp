@@ -78,6 +78,15 @@ void Mainmenu::on_modify_movie_triggered()
 // 获取电影
 void Mainmenu::on_get_movie_triggered()
 {
+    ui->stackedWidget->setCurrentWidget(ui->get_movie_ui);
+    ui->tableWidget_movie->setRowCount(5);
+    ui->tableWidget_movie->setColumnCount(5);
+    ui->tableWidget_movie->setAlternatingRowColors(true);
+
+
+    QStringList header;
+    header<<tr("电影名")<<tr("上映时间")<<tr("下映时间")<<tr("票价")<<tr("电影介绍");
+    ui->tableWidget_movie->setHorizontalHeaderLabels(header);
 
 }
 //增加影厅
@@ -93,35 +102,39 @@ void Mainmenu::on_delete_theater_triggered()
 //获取全部影厅
 void Mainmenu::on_get_theater_triggered()
 {
+    ui->stackedWidget->setCurrentWidget(ui->get_theater_ui);
     ui->tableWidget_studio->setRowCount(5);
-    ui->tableWidget_studio->setColumnCount(6);
+    ui->tableWidget_studio->setColumnCount(4);
     ui->tableWidget_studio->setAlternatingRowColors(true);
-    //ui->stackedWidget->setCurrentWidget(ui->get_theater_ui);
+
+
+    QStringList header;
+    header<<tr("影厅名")<<tr("行")<<tr("列")<<tr("影厅介绍");
+    ui->tableWidget_studio->setHorizontalHeaderLabels(header);
+
+
+
 }
 //修改影厅信息
 void Mainmenu::on_modify_theater_triggered()
 {
-            ui->stackedWidget->setCurrentWidget(ui->modify_theater_ui);
+     ui->stackedWidget->setCurrentWidget(ui->modify_theater_ui);
 }
 //增加座位
 void Mainmenu::on_add_seat_triggered()
 {
-
+    ui->stackedWidget->setCurrentWidget(ui->add_seat_ui);
 }
-//删除座位
-void Mainmenu::on_delete_seat_triggered()
-{
 
-}
 //修改座位
 void Mainmenu::on_modify_seat_triggered()
 {
-
+    ui->stackedWidget->setCurrentWidget(ui->modify_seat_ui);
 }
 //获取座位
 void Mainmenu::on_get_seat_triggered()
 {
-
+    ui->stackedWidget->setCurrentWidget(ui->get_seat_studioName);
 }
 //增加电影计划
 void Mainmenu::on_add_movie_plan_triggered()
@@ -138,9 +151,20 @@ void Mainmenu::on_modify_movie_plan_triggered()
 {
 
 }
-//查询电影计划
+//获取电影计划
 void Mainmenu::on_search_movie_plan_triggered()
 {
+
+    //先发送网络请求
+    ui->stackedWidget->setCurrentWidget(ui->get_movie_plan_ui);
+    ui->tableWidget_studio->setRowCount(5);
+    ui->tableWidget_studio->setColumnCount(4);
+    ui->tableWidget_studio->setAlternatingRowColors(true);
+
+
+    QStringList header;
+    header<<tr("所在演出厅")<<tr("电影名")<<tr("放映时间");
+    ui->tableWidget_movie_plan->setHorizontalHeaderLabels(header);
 
 }
 
@@ -189,14 +213,18 @@ void Mainmenu::on_pushButton_clicked()
     obj.insert("data",QJsonValue(data));
 
     QJsonDocument doc(obj);
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
 
     QString post;
     post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 
@@ -237,15 +265,20 @@ void Mainmenu::on_pushButton_2_clicked()
 
     QJsonDocument doc(obj);
 
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
+
 }
 
 //注销
@@ -272,13 +305,17 @@ void Mainmenu::on_pushButton_3_clicked()
 
     QJsonDocument doc(obj);
 
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 }
@@ -310,14 +347,17 @@ void Mainmenu::on_pushButton_6_clicked()
     obj.insert("data",QJsonValue(data));
 
     QJsonDocument doc(obj);
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
 
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 
@@ -347,13 +387,17 @@ void Mainmenu::on_pushButton_7_clicked()
 
     QJsonDocument doc(obj);
 
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 
@@ -394,16 +438,19 @@ void Mainmenu::on_pushButton_8_clicked()
 
     QJsonDocument doc(obj);
 
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
-
 }
 
 
@@ -429,14 +476,17 @@ void Mainmenu::on_pushButton_9_clicked()
     obj.insert("data",QJsonValue(data));
 
     QJsonDocument doc(obj);
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
 
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 }
@@ -461,14 +511,17 @@ void Mainmenu::on_pushButton_10_clicked()
     obj.insert("data",QJsonValue(data));
 
     QJsonDocument doc(obj);
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
 
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 }
@@ -502,14 +555,17 @@ void Mainmenu::on_pushButton_11_clicked()
     obj.insert("data",QJsonValue(data));
 
     QJsonDocument doc(obj);
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
 
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 }
@@ -536,13 +592,111 @@ void Mainmenu::on_pushButton_12_clicked()
 
     QJsonDocument doc(obj);
 
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
     QString post;
-    post.append("POST /  \r\n");
-    post.append(Content_Length);
-    post.append(QString::number(sizeof(obj)));
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
     post.append("\r\n\r\n");
 
-    post.append(doc.toJson());
+    post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
+}
+
+//增加座位
+void Mainmenu::on_pushButton_13_clicked()
+{
+
+}
+
+//修改座位
+void Mainmenu::on_pushButton_15_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    QJsonArray op;
+    op.append("=");
+    op.append("=");
+    op.append("=");
+    obj.insert("op",QJsonValue(op));
+
+
+
+    set.insert("status",QJsonValue(ui->lineEdit_modify_seat_status->text().toInt()));
+    obj.insert("set",QJsonValue(set));
+
+    data.insert("studioName",QJsonValue(ui->lineEdit_modify_seat_studioName->text()));
+    data.insert("row",QJsonValue(ui->lineEdit_modify_seat_row->text().toInt()));
+    data.insert("col",QJsonValue(ui->lineEdit_modify_seat_col->text().toInt()));
+
+    obj.insert("tableName",QJsonValue("seat"));
+
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
+    QString post;
+    post.append("POST / \r\n");
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(json);
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+}
+
+void Mainmenu::on_pushButton_41_clicked()
+{
+     tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+     QJsonObject obj;
+     QJsonObject set;  //子对象
+     QJsonObject data;
+
+     QJsonArray what;
+     what.append("*");
+
+     QJsonArray op;
+     op.append("=");
+
+     obj.insert("op",QJsonValue(op));
+     obj.insert("what",QJsonValue(what));
+
+
+     data.insert("studioName",QJsonValue(ui->lineEdit_get_seat_studioName->text()));
+
+     obj.insert("tableName",QJsonValue("seat"));
+
+     obj.insert("data",QJsonValue(data));
+
+     QJsonDocument doc(obj);
+
+     QString json = doc.toJson(QJsonDocument::Compact);
+
+     int size = json.length();
+
+     QString post;
+     post.append("POST / \r\n");
+     post.append("Content-Length: ");
+     post.append(QString::number(size));
+     post.append("\r\n\r\n");
+
+     post.append(json);
+
+     tcpsocket.tcpSocket->write(post.toUtf8().data());
+
 }

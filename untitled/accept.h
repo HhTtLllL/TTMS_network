@@ -9,7 +9,6 @@
 #include <QPair>
 #include "mainmenu.h"
 
-typedef void (*pInt)(QJsonObject);
 
 class accept : public QWidget
 {

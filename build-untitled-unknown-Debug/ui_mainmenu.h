@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDateTimeEdit>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -100,6 +101,7 @@ public:
     QLabel *label_40;
     QWidget *get_movie_ui;
     QLabel *label_38;
+    QTableWidget *tableWidget_movie;
     QWidget *modify_movie_inforation;
     QLabel *label_16;
     QLabel *label_17;
@@ -155,8 +157,66 @@ public:
     QLineEdit *lineEdit_schedule_movieName;
     QPushButton *pushButton_12;
     QDateTimeEdit *dateTimeEdit_schedule_datatime;
-    QWidget *widget;
-    QWidget *widget_2;
+    QWidget *get_movie_plan_ui;
+    QTableWidget *tableWidget_movie_plan;
+    QLabel *label_43;
+    QWidget *add_seat_ui;
+    QLabel *label_44;
+    QLineEdit *lineEdit_add_seat_movieName;
+    QLabel *label_45;
+    QLabel *label_46;
+    QLineEdit *lineEdit_add_seat_row;
+    QLineEdit *lineEdit_add_seat_col;
+    QPushButton *pushButton_13;
+    QWidget *delete_seat_ui;
+    QLabel *label_47;
+    QLineEdit *lineEdit_5;
+    QLabel *label_48;
+    QLabel *label_49;
+    QLineEdit *lineEdit_6;
+    QLineEdit *lineEdit_7;
+    QPushButton *pushButton_14;
+    QWidget *modify_seat_ui;
+    QLabel *label_50;
+    QLineEdit *lineEdit_modify_seat_studioName;
+    QLabel *label_51;
+    QLabel *label_52;
+    QLabel *label_53;
+    QLineEdit *lineEdit_modify_seat_row;
+    QLineEdit *lineEdit_modify_seat_status;
+    QLineEdit *lineEdit_modify_seat_col;
+    QPushButton *pushButton_15;
+    QWidget *get_seat_studioName;
+    QLabel *label_54;
+    QLineEdit *lineEdit_get_seat_studioName;
+    QPushButton *pushButton_41;
+    QWidget *get_seat_ui;
+    QGridLayout *gridLayout;
+    QPushButton *pushButton_16;
+    QPushButton *pushButton_17;
+    QPushButton *pushButton_18;
+    QPushButton *pushButton_19;
+    QPushButton *pushButton_20;
+    QPushButton *pushButton_22;
+    QPushButton *pushButton_23;
+    QPushButton *pushButton_24;
+    QPushButton *pushButton_25;
+    QPushButton *pushButton_26;
+    QPushButton *pushButton_27;
+    QPushButton *pushButton_28;
+    QPushButton *pushButton_29;
+    QPushButton *pushButton_30;
+    QPushButton *pushButton_31;
+    QPushButton *pushButton_32;
+    QPushButton *pushButton_33;
+    QPushButton *pushButton_34;
+    QPushButton *pushButton_35;
+    QPushButton *pushButton_36;
+    QPushButton *pushButton_37;
+    QPushButton *pushButton_38;
+    QPushButton *pushButton_39;
+    QPushButton *pushButton_40;
+    QPushButton *pushButton_21;
     QMenuBar *menubar;
     QMenu *menu;
     QMenu *movie_operation;
@@ -213,7 +273,7 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(50, 50, 674, 431));
+        stackedWidget->setGeometry(QRect(140, 80, 411, 301));
         modify_password_ui = new QWidget();
         modify_password_ui->setObjectName(QStringLiteral("modify_password_ui"));
         lineEdit_old_password = new QLineEdit(modify_password_ui);
@@ -351,6 +411,9 @@ public:
         label_38 = new QLabel(get_movie_ui);
         label_38->setObjectName(QStringLiteral("label_38"));
         label_38->setGeometry(QRect(200, 20, 221, 17));
+        tableWidget_movie = new QTableWidget(get_movie_ui);
+        tableWidget_movie->setObjectName(QStringLiteral("tableWidget_movie"));
+        tableWidget_movie->setGeometry(QRect(70, 40, 521, 351));
         stackedWidget->addWidget(get_movie_ui);
         modify_movie_inforation = new QWidget();
         modify_movie_inforation->setObjectName(QStringLiteral("modify_movie_inforation"));
@@ -517,12 +580,235 @@ public:
         dateTimeEdit_schedule_datatime->setObjectName(QStringLiteral("dateTimeEdit_schedule_datatime"));
         dateTimeEdit_schedule_datatime->setGeometry(QRect(190, 170, 194, 26));
         stackedWidget->addWidget(add_movie_plan_ui);
-        widget = new QWidget();
-        widget->setObjectName(QStringLiteral("widget"));
-        stackedWidget->addWidget(widget);
-        widget_2 = new QWidget();
-        widget_2->setObjectName(QStringLiteral("widget_2"));
-        stackedWidget->addWidget(widget_2);
+        get_movie_plan_ui = new QWidget();
+        get_movie_plan_ui->setObjectName(QStringLiteral("get_movie_plan_ui"));
+        tableWidget_movie_plan = new QTableWidget(get_movie_plan_ui);
+        tableWidget_movie_plan->setObjectName(QStringLiteral("tableWidget_movie_plan"));
+        tableWidget_movie_plan->setGeometry(QRect(110, 50, 461, 361));
+        label_43 = new QLabel(get_movie_plan_ui);
+        label_43->setObjectName(QStringLiteral("label_43"));
+        label_43->setGeometry(QRect(250, 20, 191, 17));
+        stackedWidget->addWidget(get_movie_plan_ui);
+        add_seat_ui = new QWidget();
+        add_seat_ui->setObjectName(QStringLiteral("add_seat_ui"));
+        label_44 = new QLabel(add_seat_ui);
+        label_44->setObjectName(QStringLiteral("label_44"));
+        label_44->setGeometry(QRect(120, 80, 53, 17));
+        lineEdit_add_seat_movieName = new QLineEdit(add_seat_ui);
+        lineEdit_add_seat_movieName->setObjectName(QStringLiteral("lineEdit_add_seat_movieName"));
+        lineEdit_add_seat_movieName->setGeometry(QRect(210, 80, 113, 25));
+        label_45 = new QLabel(add_seat_ui);
+        label_45->setObjectName(QStringLiteral("label_45"));
+        label_45->setGeometry(QRect(120, 130, 53, 17));
+        label_46 = new QLabel(add_seat_ui);
+        label_46->setObjectName(QStringLiteral("label_46"));
+        label_46->setGeometry(QRect(120, 180, 53, 17));
+        lineEdit_add_seat_row = new QLineEdit(add_seat_ui);
+        lineEdit_add_seat_row->setObjectName(QStringLiteral("lineEdit_add_seat_row"));
+        lineEdit_add_seat_row->setGeometry(QRect(210, 120, 113, 25));
+        lineEdit_add_seat_col = new QLineEdit(add_seat_ui);
+        lineEdit_add_seat_col->setObjectName(QStringLiteral("lineEdit_add_seat_col"));
+        lineEdit_add_seat_col->setGeometry(QRect(210, 180, 113, 25));
+        pushButton_13 = new QPushButton(add_seat_ui);
+        pushButton_13->setObjectName(QStringLiteral("pushButton_13"));
+        pushButton_13->setGeometry(QRect(170, 230, 80, 25));
+        stackedWidget->addWidget(add_seat_ui);
+        delete_seat_ui = new QWidget();
+        delete_seat_ui->setObjectName(QStringLiteral("delete_seat_ui"));
+        label_47 = new QLabel(delete_seat_ui);
+        label_47->setObjectName(QStringLiteral("label_47"));
+        label_47->setGeometry(QRect(110, 80, 81, 17));
+        lineEdit_5 = new QLineEdit(delete_seat_ui);
+        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+        lineEdit_5->setGeometry(QRect(230, 70, 113, 25));
+        label_48 = new QLabel(delete_seat_ui);
+        label_48->setObjectName(QStringLiteral("label_48"));
+        label_48->setGeometry(QRect(110, 120, 81, 17));
+        label_49 = new QLabel(delete_seat_ui);
+        label_49->setObjectName(QStringLiteral("label_49"));
+        label_49->setGeometry(QRect(110, 170, 81, 17));
+        lineEdit_6 = new QLineEdit(delete_seat_ui);
+        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
+        lineEdit_6->setGeometry(QRect(230, 110, 113, 25));
+        lineEdit_7 = new QLineEdit(delete_seat_ui);
+        lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
+        lineEdit_7->setGeometry(QRect(230, 160, 113, 25));
+        pushButton_14 = new QPushButton(delete_seat_ui);
+        pushButton_14->setObjectName(QStringLiteral("pushButton_14"));
+        pushButton_14->setGeometry(QRect(210, 320, 80, 25));
+        stackedWidget->addWidget(delete_seat_ui);
+        modify_seat_ui = new QWidget();
+        modify_seat_ui->setObjectName(QStringLiteral("modify_seat_ui"));
+        label_50 = new QLabel(modify_seat_ui);
+        label_50->setObjectName(QStringLiteral("label_50"));
+        label_50->setGeometry(QRect(140, 80, 53, 17));
+        lineEdit_modify_seat_studioName = new QLineEdit(modify_seat_ui);
+        lineEdit_modify_seat_studioName->setObjectName(QStringLiteral("lineEdit_modify_seat_studioName"));
+        lineEdit_modify_seat_studioName->setGeometry(QRect(220, 80, 113, 25));
+        label_51 = new QLabel(modify_seat_ui);
+        label_51->setObjectName(QStringLiteral("label_51"));
+        label_51->setGeometry(QRect(140, 120, 53, 17));
+        label_52 = new QLabel(modify_seat_ui);
+        label_52->setObjectName(QStringLiteral("label_52"));
+        label_52->setGeometry(QRect(140, 160, 53, 17));
+        label_53 = new QLabel(modify_seat_ui);
+        label_53->setObjectName(QStringLiteral("label_53"));
+        label_53->setGeometry(QRect(140, 200, 53, 17));
+        lineEdit_modify_seat_row = new QLineEdit(modify_seat_ui);
+        lineEdit_modify_seat_row->setObjectName(QStringLiteral("lineEdit_modify_seat_row"));
+        lineEdit_modify_seat_row->setGeometry(QRect(220, 120, 113, 25));
+        lineEdit_modify_seat_status = new QLineEdit(modify_seat_ui);
+        lineEdit_modify_seat_status->setObjectName(QStringLiteral("lineEdit_modify_seat_status"));
+        lineEdit_modify_seat_status->setGeometry(QRect(220, 200, 113, 25));
+        lineEdit_modify_seat_col = new QLineEdit(modify_seat_ui);
+        lineEdit_modify_seat_col->setObjectName(QStringLiteral("lineEdit_modify_seat_col"));
+        lineEdit_modify_seat_col->setGeometry(QRect(220, 160, 113, 25));
+        pushButton_15 = new QPushButton(modify_seat_ui);
+        pushButton_15->setObjectName(QStringLiteral("pushButton_15"));
+        pushButton_15->setGeometry(QRect(170, 310, 131, 51));
+        stackedWidget->addWidget(modify_seat_ui);
+        get_seat_studioName = new QWidget();
+        get_seat_studioName->setObjectName(QStringLiteral("get_seat_studioName"));
+        label_54 = new QLabel(get_seat_studioName);
+        label_54->setObjectName(QStringLiteral("label_54"));
+        label_54->setGeometry(QRect(30, 60, 53, 17));
+        lineEdit_get_seat_studioName = new QLineEdit(get_seat_studioName);
+        lineEdit_get_seat_studioName->setObjectName(QStringLiteral("lineEdit_get_seat_studioName"));
+        lineEdit_get_seat_studioName->setGeometry(QRect(130, 60, 113, 25));
+        pushButton_41 = new QPushButton(get_seat_studioName);
+        pushButton_41->setObjectName(QStringLiteral("pushButton_41"));
+        pushButton_41->setGeometry(QRect(100, 160, 80, 25));
+        stackedWidget->addWidget(get_seat_studioName);
+        get_seat_ui = new QWidget();
+        get_seat_ui->setObjectName(QStringLiteral("get_seat_ui"));
+        gridLayout = new QGridLayout(get_seat_ui);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        pushButton_16 = new QPushButton(get_seat_ui);
+        pushButton_16->setObjectName(QStringLiteral("pushButton_16"));
+
+        gridLayout->addWidget(pushButton_16, 0, 0, 1, 1);
+
+        pushButton_17 = new QPushButton(get_seat_ui);
+        pushButton_17->setObjectName(QStringLiteral("pushButton_17"));
+
+        gridLayout->addWidget(pushButton_17, 0, 1, 1, 1);
+
+        pushButton_18 = new QPushButton(get_seat_ui);
+        pushButton_18->setObjectName(QStringLiteral("pushButton_18"));
+
+        gridLayout->addWidget(pushButton_18, 0, 2, 1, 1);
+
+        pushButton_19 = new QPushButton(get_seat_ui);
+        pushButton_19->setObjectName(QStringLiteral("pushButton_19"));
+
+        gridLayout->addWidget(pushButton_19, 0, 3, 1, 1);
+
+        pushButton_20 = new QPushButton(get_seat_ui);
+        pushButton_20->setObjectName(QStringLiteral("pushButton_20"));
+
+        gridLayout->addWidget(pushButton_20, 0, 4, 1, 1);
+
+        pushButton_22 = new QPushButton(get_seat_ui);
+        pushButton_22->setObjectName(QStringLiteral("pushButton_22"));
+
+        gridLayout->addWidget(pushButton_22, 1, 1, 1, 1);
+
+        pushButton_23 = new QPushButton(get_seat_ui);
+        pushButton_23->setObjectName(QStringLiteral("pushButton_23"));
+
+        gridLayout->addWidget(pushButton_23, 1, 2, 1, 1);
+
+        pushButton_24 = new QPushButton(get_seat_ui);
+        pushButton_24->setObjectName(QStringLiteral("pushButton_24"));
+
+        gridLayout->addWidget(pushButton_24, 1, 3, 1, 1);
+
+        pushButton_25 = new QPushButton(get_seat_ui);
+        pushButton_25->setObjectName(QStringLiteral("pushButton_25"));
+
+        gridLayout->addWidget(pushButton_25, 1, 4, 1, 1);
+
+        pushButton_26 = new QPushButton(get_seat_ui);
+        pushButton_26->setObjectName(QStringLiteral("pushButton_26"));
+
+        gridLayout->addWidget(pushButton_26, 2, 0, 1, 1);
+
+        pushButton_27 = new QPushButton(get_seat_ui);
+        pushButton_27->setObjectName(QStringLiteral("pushButton_27"));
+
+        gridLayout->addWidget(pushButton_27, 2, 1, 1, 1);
+
+        pushButton_28 = new QPushButton(get_seat_ui);
+        pushButton_28->setObjectName(QStringLiteral("pushButton_28"));
+
+        gridLayout->addWidget(pushButton_28, 2, 2, 1, 1);
+
+        pushButton_29 = new QPushButton(get_seat_ui);
+        pushButton_29->setObjectName(QStringLiteral("pushButton_29"));
+
+        gridLayout->addWidget(pushButton_29, 2, 3, 1, 1);
+
+        pushButton_30 = new QPushButton(get_seat_ui);
+        pushButton_30->setObjectName(QStringLiteral("pushButton_30"));
+
+        gridLayout->addWidget(pushButton_30, 2, 4, 1, 1);
+
+        pushButton_31 = new QPushButton(get_seat_ui);
+        pushButton_31->setObjectName(QStringLiteral("pushButton_31"));
+
+        gridLayout->addWidget(pushButton_31, 3, 0, 1, 1);
+
+        pushButton_32 = new QPushButton(get_seat_ui);
+        pushButton_32->setObjectName(QStringLiteral("pushButton_32"));
+
+        gridLayout->addWidget(pushButton_32, 3, 1, 1, 1);
+
+        pushButton_33 = new QPushButton(get_seat_ui);
+        pushButton_33->setObjectName(QStringLiteral("pushButton_33"));
+
+        gridLayout->addWidget(pushButton_33, 3, 2, 1, 1);
+
+        pushButton_34 = new QPushButton(get_seat_ui);
+        pushButton_34->setObjectName(QStringLiteral("pushButton_34"));
+
+        gridLayout->addWidget(pushButton_34, 3, 3, 1, 1);
+
+        pushButton_35 = new QPushButton(get_seat_ui);
+        pushButton_35->setObjectName(QStringLiteral("pushButton_35"));
+
+        gridLayout->addWidget(pushButton_35, 3, 4, 1, 1);
+
+        pushButton_36 = new QPushButton(get_seat_ui);
+        pushButton_36->setObjectName(QStringLiteral("pushButton_36"));
+
+        gridLayout->addWidget(pushButton_36, 4, 0, 1, 1);
+
+        pushButton_37 = new QPushButton(get_seat_ui);
+        pushButton_37->setObjectName(QStringLiteral("pushButton_37"));
+
+        gridLayout->addWidget(pushButton_37, 4, 1, 1, 1);
+
+        pushButton_38 = new QPushButton(get_seat_ui);
+        pushButton_38->setObjectName(QStringLiteral("pushButton_38"));
+
+        gridLayout->addWidget(pushButton_38, 4, 2, 1, 1);
+
+        pushButton_39 = new QPushButton(get_seat_ui);
+        pushButton_39->setObjectName(QStringLiteral("pushButton_39"));
+
+        gridLayout->addWidget(pushButton_39, 4, 3, 1, 1);
+
+        pushButton_40 = new QPushButton(get_seat_ui);
+        pushButton_40->setObjectName(QStringLiteral("pushButton_40"));
+
+        gridLayout->addWidget(pushButton_40, 4, 4, 1, 1);
+
+        pushButton_21 = new QPushButton(get_seat_ui);
+        pushButton_21->setObjectName(QStringLiteral("pushButton_21"));
+
+        gridLayout->addWidget(pushButton_21, 1, 0, 1, 1);
+
+        stackedWidget->addWidget(get_seat_ui);
         Mainmenu->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Mainmenu);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -559,8 +845,6 @@ public:
         theater_operation->addAction(delete_theater);
         theater_operation->addAction(get_theater);
         theater_operation->addAction(modify_theater);
-        seat_operation->addAction(add_seat);
-        seat_operation->addAction(delete_seat);
         seat_operation->addAction(modify_seat);
         seat_operation->addAction(get_seat);
         movie_plan_opeartion->addAction(add_movie_plan);
@@ -573,7 +857,7 @@ public:
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(10);
+        stackedWidget->setCurrentIndex(17);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
@@ -655,6 +939,47 @@ public:
         label_36->setText(QApplication::translate("Mainmenu", "\344\270\212\346\230\240\347\224\265\345\275\261", 0));
         label_37->setText(QApplication::translate("Mainmenu", "\344\270\212\346\230\240\346\227\266\351\227\264", 0));
         pushButton_12->setText(QApplication::translate("Mainmenu", "\347\241\256\345\256\232\345\242\236\345\212\240", 0));
+        label_43->setText(QApplication::translate("Mainmenu", "\347\224\265\345\275\261\350\256\241\345\210\222", 0));
+        label_44->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
+        label_45->setText(QApplication::translate("Mainmenu", "\350\241\214", 0));
+        label_46->setText(QApplication::translate("Mainmenu", "\345\210\227", 0));
+        pushButton_13->setText(QApplication::translate("Mainmenu", "\347\241\256\345\256\232\345\242\236\345\212\240", 0));
+        label_47->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
+        label_48->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
+        label_49->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
+        pushButton_14->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\345\210\240\351\231\244", 0));
+        label_50->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
+        label_51->setText(QApplication::translate("Mainmenu", "\350\241\214", 0));
+        label_52->setText(QApplication::translate("Mainmenu", "\345\210\227", 0));
+        label_53->setText(QApplication::translate("Mainmenu", "\347\212\266\346\200\201", 0));
+        pushButton_15->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\344\277\256\346\224\271", 0));
+        label_54->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
+        pushButton_41->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\346\237\245\350\257\242", 0));
+        pushButton_16->setText(QString());
+        pushButton_17->setText(QString());
+        pushButton_18->setText(QString());
+        pushButton_19->setText(QString());
+        pushButton_20->setText(QString());
+        pushButton_22->setText(QString());
+        pushButton_23->setText(QString());
+        pushButton_24->setText(QString());
+        pushButton_25->setText(QString());
+        pushButton_26->setText(QString());
+        pushButton_27->setText(QString());
+        pushButton_28->setText(QString());
+        pushButton_29->setText(QString());
+        pushButton_30->setText(QString());
+        pushButton_31->setText(QString());
+        pushButton_32->setText(QString());
+        pushButton_33->setText(QString());
+        pushButton_34->setText(QString());
+        pushButton_35->setText(QString());
+        pushButton_36->setText(QString());
+        pushButton_37->setText(QString());
+        pushButton_38->setText(QString());
+        pushButton_39->setText(QString());
+        pushButton_40->setText(QString());
+        pushButton_21->setText(QString());
         menu->setTitle(QApplication::translate("Mainmenu", "\350\217\234\345\215\225", 0));
         movie_operation->setTitle(QApplication::translate("Mainmenu", "\347\224\265\345\275\261\346\223\215\344\275\234", 0));
         theater_operation->setTitle(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\346\223\215\344\275\234", 0));
