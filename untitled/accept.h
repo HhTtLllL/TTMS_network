@@ -61,6 +61,9 @@ public:
     void delete_studio(QJsonObject respon); //删除影厅
     void get_studio(QJsonObject respon);  //获取影厅
     void modify_studio(QJsonObject respon);  //修改影厅
+    void modify_seat(QJsonObject respon); //修改座位
+    void get_seat(QJsonObject respon); //获取座位
+
     Mainmenu w2;
 
 };

@@ -19,6 +19,7 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
+#include "accept.h"
 
 Mainmenu::Mainmenu(QWidget *parent) :
     QMainWindow(parent),
@@ -112,6 +113,8 @@ void Mainmenu::on_get_theater_triggered()
     header<<tr("影厅名")<<tr("行")<<tr("列")<<tr("影厅介绍");
     ui->tableWidget_studio->setHorizontalHeaderLabels(header);
 
+
+    get_studio();
 
 
 }
@@ -219,7 +222,8 @@ void Mainmenu::on_pushButton_clicked()
 
 
     QString post;
-    post.append("POST /  \r\n");
+    int num = accept::UPDATEUSER;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -270,7 +274,8 @@ void Mainmenu::on_pushButton_2_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::UPDATEUSER;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -310,7 +315,8 @@ void Mainmenu::on_pushButton_3_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::DELETEUSER;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -352,7 +358,8 @@ void Mainmenu::on_pushButton_6_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::DELETEMOVIE;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -392,7 +399,8 @@ void Mainmenu::on_pushButton_7_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::INSERTMOVIE;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -443,7 +451,8 @@ void Mainmenu::on_pushButton_8_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::INSERTMOVIE;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -481,7 +490,8 @@ void Mainmenu::on_pushButton_9_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::INSERTSTUDIO;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -516,7 +526,8 @@ void Mainmenu::on_pushButton_10_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::DELETESTUDIO;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -560,7 +571,8 @@ void Mainmenu::on_pushButton_11_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::UPDATESTUDIO;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -597,7 +609,8 @@ void Mainmenu::on_pushButton_12_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::INSERTSCHEDULE;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -648,7 +661,8 @@ void Mainmenu::on_pushButton_15_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST / \r\n");
+    int num = accept::UPDATESEAT;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
@@ -659,6 +673,8 @@ void Mainmenu::on_pushButton_15_clicked()
 
 }
 
+
+//获取座位
 void Mainmenu::on_pushButton_41_clicked()
 {
      tcpClient& tcpsocket = tcpClient::get_tcpclient();
@@ -690,7 +706,8 @@ void Mainmenu::on_pushButton_41_clicked()
      int size = json.length();
 
      QString post;
-     post.append("POST / \r\n");
+     int num = accept::QUERYSEAT;
+     post.sprintf("POST /?%d \r\n",num);
      post.append("Content-Length: ");
      post.append(QString::number(size));
      post.append("\r\n\r\n");
@@ -698,5 +715,45 @@ void Mainmenu::on_pushButton_41_clicked()
      post.append(json);
 
      tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+}
+
+//获取演出厅
+void Mainmenu::get_studio()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject limit;
+
+    QJsonArray what;
+    what.append("*");
+    obj.insert("what",QJsonValue(what));
+
+
+
+    limit.insert("limit",QJsonValue("0,5"));
+
+    obj.insert("tableName",QJsonValue("studio"));
+
+    obj.insert("data",QJsonValue(limit));
+
+    QJsonDocument doc(obj);
+
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
+    QString post;
+    int num = accept::QUERYSTUDIO;
+    post.sprintf("POST /?%d \r\n",num);
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(json);
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
 
 }

@@ -63,54 +63,78 @@ void accept::deal()
 
 
 
-    if(pos == "18")  //登录
+    if(pos.toInt() == accept::QUERYUSER)  //登录
     {
         qDebug() << "调用登录代码";
         accept_login(obj);
     }
-    else if(pos == "12") //注销
+    else if(pos.toInt() == accept::DELETEUSER) //注销
     {
         accept_logout(obj);
     }
-    else if(pos == "2") //注册
+    else if(pos.toInt() == accept::INSERTUSER) //注册
     {
         accept_rep(obj);
     }
-    else if(pos == "7") //修改信息
+    else if(pos.toInt() == accept::UPDATEUSER) //修改信息
     {
         accept_modify_information(obj);
     }
-    else if(pos == "13") //删除电影
+    else if(pos.toInt() == accept::DELETEMOVIE) //删除电影
     {
         delete_movie(obj);
     }
-    else if(pos == "3") //增加电影
+    else if(pos.toInt() == accept::INSERTMOVIE) //增加电影
     {
         add_movie(obj);
     }
-    else if(pos == "19") //获取电影
+    else if(pos.toInt() == accept::QUERYMOVIE) //获取电影
     {
         get_movie(obj);
     }
-    else if(pos == "8") //修改电影
+    else if(pos.toInt() == accept::UPDATEMOVIE) //修改电影
     {
         modify_movie(obj);
     }
-    else if(pos == "6") //增加影厅
+    else if(pos.toInt() == accept::INSERTSTUDIO) //增加影厅
     {
         add_studio(obj);
     }
-    else if(pos == "16")
+    else if(pos.toInt() == accept::DELETESTUDIO)  //删除演出厅
     {
         delete_studio(obj);
     }
-    else if(pos == "22")
+    else if(pos.toInt() == accept::QUERYSTUDIO) //查询演出厅
     {
         get_studio(obj);
     }
-    else if(pos == "11")
+    else if(pos.toInt() == accept::UPDATESTUDIO)  //修改演出厅
     {
         modify_studio(obj);
+    }
+    else if(pos.toInt() == accept::UPDATESEAT)  //修改座位
+    {
+
+    }
+    else if(pos.toInt() == accept::QUERYSEAT) //获取座位
+    {
+
+    }
+    else if(pos.toInt() == accept::INSERTSCHEDULE) //增加电影计划
+    {
+
+    }
+    else if(pos.toInt() == accept::UPDATESCHEDULE) //修改电影计划
+    {
+
+    }
+    else if(pos.toInt() == accept::DELETESCHEDULE) //删除电影计划
+    {
+
+    }
+    else if(pos.toInt() == accept::QUERYSCHEDULE)  //查询演出计划
+    {
+
     }
 
 }
@@ -251,7 +275,7 @@ void accept::modify_movie(QJsonObject respon)
     //修改成功
 }
 
-//添加电影
+//添加电影厅
 void accept::add_studio(QJsonObject respon)
 {
     if( respon.value("state").toInt() == 400 )
@@ -264,7 +288,7 @@ void accept::add_studio(QJsonObject respon)
     //添加失败
 }
 
-//删除电影
+//删除电影厅
 void accept::delete_studio(QJsonObject respon)
 {
     if( respon.value("state").toInt() == 400 )
@@ -277,7 +301,7 @@ void accept::delete_studio(QJsonObject respon)
     //删除失败
 }
 
-//获取所有电影
+//获取所有影厅
 void accept::get_studio(QJsonObject respon)
 {
     if( respon.value("state").toInt() == 400 )
@@ -304,3 +328,19 @@ void accept::modify_studio(QJsonObject respon)
     //修改成功
 }
 
+void accept::modify_seat(QJsonObject respon)
+{
+    if( respon.value("state").toInt() == 400 )
+    {
+        //修改失败
+        qDebug() << "修改失败";
+        return ;
+    }
+
+    //修改成功
+}
+
+void accept::get_seat(QJsonObject respon)
+{
+
+}

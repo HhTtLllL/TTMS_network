@@ -155,7 +155,8 @@ void Login::on_pushButton_clicked()
     int size = json.length();
 
     QString post;
-    post.append("POST /?2 \r\n");
+    int num = accept::INSERTUSER;
+    post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
     post.append("\r\n\r\n");
