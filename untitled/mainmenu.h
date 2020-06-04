@@ -87,6 +87,16 @@ private slots:
 
     void on_pushButton_43_clicked();
 
+    void on_action_buy_triggered();
+
+    void on_action_refund_triggered();
+
+    void on_pushButton_44_clicked();
+
+    void on_pushButton_47_clicked();
+
+    void on_pushButton_46_clicked();
+
 private:
     Ui::Mainmenu *ui;
 };

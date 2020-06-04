@@ -21,7 +21,7 @@
 #include <QVBoxLayout>
 #include "accept.h"
 #include "acceptdeal.h"
-
+#include <QMessageBox>
 
 Mainmenu::Mainmenu(QWidget *parent) :
     QMainWindow(parent),
@@ -35,6 +35,8 @@ Mainmenu::~Mainmenu()
 {
     delete ui;
 }
+
+//买票
 
 
 //切换修改密码的界面
@@ -988,4 +990,36 @@ void Mainmenu::on_pushButton_43_clicked()
 
     qDebug() << "发送";
     qDebug() << "点击删除电影计划";
+}
+
+void Mainmenu::on_action_buy_triggered()
+{
+        ui->stackedWidget->setCurrentWidget(ui->buy_tick);
+}
+
+void Mainmenu::on_action_refund_triggered()
+{
+    ui->stackedWidget->setCurrentWidget(ui->return_tick);
+}
+
+void Mainmenu::on_pushButton_44_clicked()
+{
+    qDebug() << "确认购买";
+
+    ui->stackedWidget->setCurrentWidget(ui->tick_id);
+}
+
+
+
+
+
+
+void Mainmenu::on_pushButton_47_clicked()
+{
+    qDebug() << "点击";
+}
+
+void Mainmenu::on_pushButton_46_clicked()
+{
+    QMessageBox::information(NULL, "退票", "成功退票");
 }

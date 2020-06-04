@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 
     Mainmenu w2;
-    //w2.show();
+   // w2.show();
 
     Acceptdeal e(new QWidget);
 

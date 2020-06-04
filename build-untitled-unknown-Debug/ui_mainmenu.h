@@ -52,6 +52,8 @@ public:
     QAction *delete_movie_plan;
     QAction *modify_movie_plan;
     QAction *search_movie_plan;
+    QAction *action_buy;
+    QAction *action_refund;
     QWidget *centralwidget;
     QStackedWidget *stackedWidget;
     QWidget *modify_password_ui;
@@ -72,6 +74,21 @@ public:
     QLineEdit *lineEdit_phone;
     QLineEdit *lineEdit_mibao;
     QPushButton *pushButton_2;
+    QWidget *buy_tick;
+    QLabel *label_50;
+    QLabel *label_51;
+    QLineEdit *lineEdit_buy_seatid;
+    QLabel *label_62;
+    QLineEdit *lineEdit_buy_tick;
+    QPushButton *pushButton_44;
+    QWidget *return_tick;
+    QLabel *label_64;
+    QLineEdit *lineEdit_return_tick;
+    QPushButton *pushButton_46;
+    QWidget *tick_id;
+    QLabel *label_63;
+    QLineEdit *lineEdit_tickid;
+    QPushButton *pushButton_45;
     QWidget *logout_ui;
     QPushButton *pushButton_3;
     QLabel *label_39;
@@ -234,6 +251,7 @@ public:
     QMenu *seat_operation;
     QMenu *movie_plan_opeartion;
     QMenu *system_set;
+    QMenu *buytcket;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *Mainmenu)
@@ -279,11 +297,15 @@ public:
         modify_movie_plan->setObjectName(QStringLiteral("modify_movie_plan"));
         search_movie_plan = new QAction(Mainmenu);
         search_movie_plan->setObjectName(QStringLiteral("search_movie_plan"));
+        action_buy = new QAction(Mainmenu);
+        action_buy->setObjectName(QStringLiteral("action_buy"));
+        action_refund = new QAction(Mainmenu);
+        action_refund->setObjectName(QStringLiteral("action_refund"));
         centralwidget = new QWidget(Mainmenu);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(40, 30, 691, 501));
+        stackedWidget->setGeometry(QRect(110, 60, 521, 371));
         modify_password_ui = new QWidget();
         modify_password_ui->setObjectName(QStringLiteral("modify_password_ui"));
         lineEdit_old_password = new QLineEdit(modify_password_ui);
@@ -338,6 +360,51 @@ public:
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(200, 300, 80, 25));
         stackedWidget->addWidget(modify_information_ui);
+        buy_tick = new QWidget();
+        buy_tick->setObjectName(QStringLiteral("buy_tick"));
+        label_50 = new QLabel(buy_tick);
+        label_50->setObjectName(QStringLiteral("label_50"));
+        label_50->setGeometry(QRect(230, 40, 111, 17));
+        label_51 = new QLabel(buy_tick);
+        label_51->setObjectName(QStringLiteral("label_51"));
+        label_51->setGeometry(QRect(100, 90, 71, 17));
+        lineEdit_buy_seatid = new QLineEdit(buy_tick);
+        lineEdit_buy_seatid->setObjectName(QStringLiteral("lineEdit_buy_seatid"));
+        lineEdit_buy_seatid->setGeometry(QRect(210, 80, 113, 25));
+        label_62 = new QLabel(buy_tick);
+        label_62->setObjectName(QStringLiteral("label_62"));
+        label_62->setGeometry(QRect(100, 130, 71, 17));
+        lineEdit_buy_tick = new QLineEdit(buy_tick);
+        lineEdit_buy_tick->setObjectName(QStringLiteral("lineEdit_buy_tick"));
+        lineEdit_buy_tick->setGeometry(QRect(210, 130, 113, 25));
+        pushButton_44 = new QPushButton(buy_tick);
+        pushButton_44->setObjectName(QStringLiteral("pushButton_44"));
+        pushButton_44->setGeometry(QRect(170, 220, 131, 51));
+        stackedWidget->addWidget(buy_tick);
+        return_tick = new QWidget();
+        return_tick->setObjectName(QStringLiteral("return_tick"));
+        label_64 = new QLabel(return_tick);
+        label_64->setObjectName(QStringLiteral("label_64"));
+        label_64->setGeometry(QRect(90, 90, 71, 17));
+        lineEdit_return_tick = new QLineEdit(return_tick);
+        lineEdit_return_tick->setObjectName(QStringLiteral("lineEdit_return_tick"));
+        lineEdit_return_tick->setGeometry(QRect(210, 80, 113, 25));
+        pushButton_46 = new QPushButton(return_tick);
+        pushButton_46->setObjectName(QStringLiteral("pushButton_46"));
+        pushButton_46->setGeometry(QRect(170, 190, 80, 25));
+        stackedWidget->addWidget(return_tick);
+        tick_id = new QWidget();
+        tick_id->setObjectName(QStringLiteral("tick_id"));
+        label_63 = new QLabel(tick_id);
+        label_63->setObjectName(QStringLiteral("label_63"));
+        label_63->setGeometry(QRect(100, 90, 53, 17));
+        lineEdit_tickid = new QLineEdit(tick_id);
+        lineEdit_tickid->setObjectName(QStringLiteral("lineEdit_tickid"));
+        lineEdit_tickid->setGeometry(QRect(180, 90, 113, 25));
+        pushButton_45 = new QPushButton(tick_id);
+        pushButton_45->setObjectName(QStringLiteral("pushButton_45"));
+        pushButton_45->setGeometry(QRect(160, 190, 80, 25));
+        stackedWidget->addWidget(tick_id);
         logout_ui = new QWidget();
         logout_ui->setObjectName(QStringLiteral("logout_ui"));
         pushButton_3 = new QPushButton(logout_ui);
@@ -868,6 +935,8 @@ public:
         movie_plan_opeartion->setObjectName(QStringLiteral("movie_plan_opeartion"));
         system_set = new QMenu(menubar);
         system_set->setObjectName(QStringLiteral("system_set"));
+        buytcket = new QMenu(menubar);
+        buytcket->setObjectName(QStringLiteral("buytcket"));
         Mainmenu->setMenuBar(menubar);
         statusbar = new QStatusBar(Mainmenu);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -875,6 +944,7 @@ public:
 
         menubar->addAction(menu->menuAction());
         menubar->addAction(system_set->menuAction());
+        menubar->addAction(buytcket->menuAction());
         menu->addAction(movie_operation->menuAction());
         menu->addSeparator();
         menu->addAction(theater_operation->menuAction());
@@ -896,10 +966,12 @@ public:
         system_set->addAction(modify_password);
         system_set->addAction(modify_information);
         system_set->addAction(logout);
+        buytcket->addAction(action_buy);
+        buytcket->addAction(action_refund);
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(16);
+        stackedWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
@@ -927,6 +999,8 @@ public:
         delete_movie_plan->setText(QApplication::translate("Mainmenu", "\345\210\240\351\231\244\347\224\265\345\275\261\350\256\241\345\210\222", 0));
         modify_movie_plan->setText(QApplication::translate("Mainmenu", "\344\277\256\346\224\271\347\224\265\345\275\261\350\256\241\345\210\222", 0));
         search_movie_plan->setText(QApplication::translate("Mainmenu", "\346\237\245\350\257\242\347\224\265\345\275\261\350\256\241\345\210\222", 0));
+        action_buy->setText(QApplication::translate("Mainmenu", "buy", 0));
+        action_refund->setText(QApplication::translate("Mainmenu", "refund", 0));
         label->setText(QApplication::translate("Mainmenu", "\346\227\247\345\257\206\347\240\201", 0));
         label_2->setText(QApplication::translate("Mainmenu", "\346\226\260\345\257\206\347\240\201", 0));
         label_3->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\345\257\206\347\240\201", 0));
@@ -937,6 +1011,14 @@ public:
         label_8->setText(QApplication::translate("Mainmenu", "\347\224\265\350\257\235", 0));
         label_9->setText(QApplication::translate("Mainmenu", "\345\257\206\344\277\235", 0));
         pushButton_2->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\344\277\256\346\224\271", 0));
+        label_50->setText(QApplication::translate("Mainmenu", "\344\271\260\347\245\250", 0));
+        label_51->setText(QApplication::translate("Mainmenu", "\345\272\247\344\275\215id", 0));
+        label_62->setText(QApplication::translate("Mainmenu", "\347\245\250\344\273\267", 0));
+        pushButton_44->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\350\264\255\344\271\260", 0));
+        label_64->setText(QApplication::translate("Mainmenu", "\347\245\250id", 0));
+        pushButton_46->setText(QApplication::translate("Mainmenu", "\347\241\256\345\256\232\351\200\200\347\245\250", 0));
+        label_63->setText(QApplication::translate("Mainmenu", "\347\245\250id", 0));
+        pushButton_45->setText(QApplication::translate("Mainmenu", "\347\241\256\345\256\232", 0));
         pushButton_3->setText(QApplication::translate("Mainmenu", "\347\241\256\350\256\244\346\263\250\351\224\200", 0));
         label_39->setText(QApplication::translate("Mainmenu", "\345\257\206\347\240\201", 0));
         pushButton_4->setText(QApplication::translate("Mainmenu", "\347\262\276\347\241\256\346\220\234\347\264\242", 0));
@@ -1035,6 +1117,7 @@ public:
         seat_operation->setTitle(QApplication::translate("Mainmenu", "\345\272\247\344\275\215\346\223\215\344\275\234", 0));
         movie_plan_opeartion->setTitle(QApplication::translate("Mainmenu", "\347\224\265\345\275\261\350\256\241\345\210\222\346\223\215\344\275\234", 0));
         system_set->setTitle(QApplication::translate("Mainmenu", "\347\263\273\347\273\237\350\256\276\347\275\256", 0));
+        buytcket->setTitle(QApplication::translate("Mainmenu", "\344\271\260\345\215\226\347\245\250", 0));
     } // retranslateUi
 
 };

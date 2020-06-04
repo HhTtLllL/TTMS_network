@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
-      <width>691</width>
-      <height>501</height>
+      <x>110</x>
+      <y>60</y>
+      <width>521</width>
+      <height>371</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>16</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="modify_password_ui">
      <widget class="QLineEdit" name="lineEdit_old_password">
@@ -217,6 +217,156 @@
       </property>
       <property name="text">
        <string>确认修改</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="buy_tick">
+     <widget class="QLabel" name="label_50">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>40</y>
+        <width>111</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>买票</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_51">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>90</y>
+        <width>71</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>座位id</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_buy_seatid">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>80</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_62">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>130</y>
+        <width>71</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>票价</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_buy_tick">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>130</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_44">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>220</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确认购买</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="return_tick">
+     <widget class="QLabel" name="label_64">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>90</y>
+        <width>71</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>票id</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_return_tick">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>80</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_46">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>190</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定退票</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tick_id">
+     <widget class="QLabel" name="label_63">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>90</y>
+        <width>53</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>票id</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_tickid">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>90</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_45">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>190</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确定</string>
       </property>
      </widget>
     </widget>
@@ -1790,8 +1940,16 @@
     <addaction name="modify_information"/>
     <addaction name="logout"/>
    </widget>
+   <widget class="QMenu" name="buytcket">
+    <property name="title">
+     <string>买卖票</string>
+    </property>
+    <addaction name="action_buy"/>
+    <addaction name="action_refund"/>
+   </widget>
    <addaction name="menu"/>
    <addaction name="system_set"/>
+   <addaction name="buytcket"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="modify_password">
@@ -1887,6 +2045,16 @@
   <action name="search_movie_plan">
    <property name="text">
     <string>查询电影计划</string>
+   </property>
+  </action>
+  <action name="action_buy">
+   <property name="text">
+    <string>buy</string>
+   </property>
+  </action>
+  <action name="action_refund">
+   <property name="text">
+    <string>refund</string>
    </property>
   </action>
  </widget>

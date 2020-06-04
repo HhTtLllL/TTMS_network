@@ -135,7 +135,6 @@ void Acceptdeal::deal()
     else if(pos.toInt() == Acceptdeal::QUERYSCHEDULE)  //查询演出计划
     {
         get_schedule(obj);
-
     }
 
 

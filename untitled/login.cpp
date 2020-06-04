@@ -138,16 +138,25 @@ void Login::on_pushButton_clicked()
 
     QJsonObject obj;
     QJsonObject sub;
+    QJsonArray data;
+
+
 
     obj.insert("tableName",QJsonValue("user"));
-    sub.insert("userName",QJsonValue("NULL"));
-    sub.insert("passWord",QJsonValue("NULL"));
-    sub.insert("sex",QJsonValue("NULL"));
-    sub.insert("phoneNumber",QJsonValue("NULL"));
-    sub.insert("mibao",QJsonValue("NULL"));
-    sub.insert("power",QJsonValue("NULL"));
 
-    obj.insert("data",QJsonValue(sub));
+
+    sub.insert("uid",QJsonValue("NULL"));
+    sub.insert("userName",QJsonValue(ui->lineEdit_username->text()));
+    sub.insert("passWord",QJsonValue(ui->lineEdit_password_reg->text()));
+    sub.insert("sex",QJsonValue(ui->lineEdit_sex->text()));
+    sub.insert("phoneNumber",QJsonValue(ui->lineEdit_phonenumber->text()));
+    sub.insert("mibao",QJsonValue(ui->lineEdit_mibao->text()));
+    sub.insert("power",QJsonValue(ui->lineEdit_power->text().toInt()));
+
+
+    data.append(sub);
+
+    obj.insert("data",QJsonValue(data));
 
 
     QJsonDocument doc(obj);
@@ -163,7 +172,7 @@ void Login::on_pushButton_clicked()
     post.append("\r\n\r\n");
 
     post.append(doc.toJson());
-
+       qDebug() << post;
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 
 }
