@@ -8,42 +8,72 @@
 #include <QMap>
 #include <QPair>
 #include "mainmenu.h"
+#include "ui_mainmenu.h"
+#include "mainmenu.h"
+#include "ui_mainmenu.h"
+#include <QMenuBar>
+#include <QMenu>
+#include <QPushButton>
+#include <QDebug>
+#include <QAction>
+#include "tcpclient.h"
+#include <QHostAddress>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QLineEdit>
+#include <QString>
+#include "common.h"
+#include "user.h"
+#include <QTableView>
+#include <QStandardItem>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
+
+namespace Ui {
+class accept;
+}
 
 
 class accept : public QWidget
 {
-public:
+public:    
     accept();
     void deal();
     tcpClient& tcpsocket = tcpClient::get_tcpclient();
     User& user = User::get_user();
 
     enum
-      {
-          MIN,
-          INSERTUSER,  //注册 2
-          INSERTMOVIE, //添加电影 3
-          INSERTSEAT,
-          INSERTSCHEDULE,
-          INSERTSTUDIO, //增加影厅 6
-          UPDATEUSER,  //修改用户信息 7
-          UPDATEMOVIE, //修改电影信息 8
-          UPDATESEAT,
-          UPDATESCHEDULE,
-          UPDATESTUDIO, //修改影厅 11
-          DELETEUSER,  //注销  12
-          DELETEMOVIE,  //删除电影 13
-          DELETESEAT,
-          DELETESCHEDULE,
-          DELETESTUDIO,//删除影厅 16
-          MID,
-          QUERYUSER,  //登录   18
-          QUERYMOVIE, //获取电影 19
-          QUERYSEAT,
-          QUERYSCHEDULE,
-          QUERYSTUDIO, //获取影厅22
-          MAX
-      };
+    {
+        MIN,
+        INSERTUSER,
+        INSERTMOVIE,
+        INSERTSEAT,
+        INSERTSCHEDULE,
+        INSERTSTUDIO,
+        INSERTTICKET,
+        UPDATEUSER,
+        UPDATEMOVIE,
+        UPDATESEAT,
+        UPDATESCHEDULE,
+        UPDATESTUDIO,
+        UPDATETICKET,
+        DELETEUSER,
+        DELETEMOVIE,
+        DELETESEAT,
+        DELETESCHEDULE,
+        DELETESTUDIO,
+        DELETETICKET,
+        MID,
+        QUERYUSER,
+        QUERYMOVIE,
+        QUERYSEAT,
+        QUERYSCHEDULE,
+        QUERYSTUDIO,
+        QUERYTICKET,
+        MAX
+    };
 
     int size; //字符串的大小
     QByteArray data;

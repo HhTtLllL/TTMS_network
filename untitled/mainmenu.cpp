@@ -20,6 +20,8 @@
 #include <QStandardItemModel>
 #include <QVBoxLayout>
 #include "accept.h"
+#include "acceptdeal.h"
+
 
 Mainmenu::Mainmenu(QWidget *parent) :
     QMainWindow(parent),
@@ -79,6 +81,43 @@ void Mainmenu::on_modify_movie_triggered()
 // 获取电影
 void Mainmenu::on_get_movie_triggered()
 {
+
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject limit;
+
+    QJsonArray what;
+    what.append("*");
+    obj.insert("what",QJsonValue(what));
+
+
+
+    limit.insert("limit",QJsonValue("0,5"));
+
+    obj.insert("tableName",QJsonValue("movie"));
+
+    obj.insert("data",QJsonValue(limit));
+
+    QJsonDocument doc(obj);
+
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
+    QString post;
+    int num = accept::QUERYMOVIE;
+    post.sprintf("POST /?%d \r\n",num);
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(json);
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+/*
     ui->stackedWidget->setCurrentWidget(ui->get_movie_ui);
     ui->tableWidget_movie->setRowCount(5);
     ui->tableWidget_movie->setColumnCount(5);
@@ -88,6 +127,8 @@ void Mainmenu::on_get_movie_triggered()
     QStringList header;
     header<<tr("电影名")<<tr("上映时间")<<tr("下映时间")<<tr("票价")<<tr("电影介绍");
     ui->tableWidget_movie->setHorizontalHeaderLabels(header);
+
+*/
 
 }
 //增加影厅
@@ -103,20 +144,7 @@ void Mainmenu::on_delete_theater_triggered()
 //获取全部影厅
 void Mainmenu::on_get_theater_triggered()
 {
-    ui->stackedWidget->setCurrentWidget(ui->get_theater_ui);
-    ui->tableWidget_studio->setRowCount(5);
-    ui->tableWidget_studio->setColumnCount(4);
-    ui->tableWidget_studio->setAlternatingRowColors(true);
-
-
-    QStringList header;
-    header<<tr("影厅名")<<tr("行")<<tr("列")<<tr("影厅介绍");
-    ui->tableWidget_studio->setHorizontalHeaderLabels(header);
-
-
     get_studio();
-
-
 }
 //修改影厅信息
 void Mainmenu::on_modify_theater_triggered()
@@ -147,7 +175,7 @@ void Mainmenu::on_add_movie_plan_triggered()
 //删除电影计划
 void Mainmenu::on_delete_movie_plan_triggered()
 {
-
+    ui->stackedWidget->setCurrentWidget(ui->delete_movie_plan_ui);
 }
 //修改电影计划
 void Mainmenu::on_modify_movie_plan_triggered()
@@ -157,17 +185,59 @@ void Mainmenu::on_modify_movie_plan_triggered()
 //获取电影计划
 void Mainmenu::on_search_movie_plan_triggered()
 {
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject limit;
+
+    QJsonArray what;
+    what.append("*");
+    obj.insert("what",QJsonValue(what));
+
+
+
+    obj.insert("limit",QJsonValue("0,5"));
+
+    obj.insert("tableName",QJsonValue("view_schedule"));
+
+    //obj.insert("data",QJsonValue(limit));
+
+    QJsonDocument doc(obj);
+
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
+    QString post;
+    int num = accept::QUERYSCHEDULE;
+    post.sprintf("POST /?%d \r\n",num);
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(json);
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+
+
+
+
+
 
     //先发送网络请求
-    ui->stackedWidget->setCurrentWidget(ui->get_movie_plan_ui);
-    ui->tableWidget_studio->setRowCount(5);
-    ui->tableWidget_studio->setColumnCount(4);
-    ui->tableWidget_studio->setAlternatingRowColors(true);
+
+   /* ui->stackedWidget->setCurrentWidget(ui->get_movie_plan_ui);
+    ui->tableWidget_movie_plan->setRowCount(5);
+    ui->tableWidget_movie_plan->setColumnCount(4);
+    ui->tableWidget_movie_plan->setAlternatingRowColors(true);
 
 
     QStringList header;
-    header<<tr("所在演出厅")<<tr("电影名")<<tr("放映时间");
-    ui->tableWidget_movie_plan->setHorizontalHeaderLabels(header);
+    header<< tr("sid") << tr("所在演出厅") << tr("电影名") << tr("放映时间");
+    ui->tableWidget_movie_plan->setHorizontalHeaderLabels(header);*/
+
 
 }
 
@@ -256,9 +326,21 @@ void Mainmenu::on_pushButton_2_clicked()
     //tableName
     obj.insert("tableName",QJsonValue("user"));
 
-    set.insert("sex",QJsonValue(ui->lineEdit_sex->text()));
-    set.insert("phone",QJsonValue(ui->lineEdit_phone->text()));
-    set.insert("mibao",QJsonValue(ui->lineEdit_mibao->text()));
+    QString sex = "'";
+    sex += ui->lineEdit_sex->text();
+    sex += "'";
+    set.insert("sex",QJsonValue(sex));
+    QString phone = "'";
+
+
+    phone += ui->lineEdit_phone->text();
+    phone += "'";
+    set.insert("phoneNumber",QJsonValue(phone));
+
+    QString mibao = "'";
+    mibao += ui->lineEdit_mibao->text();
+    mibao += "'";
+    set.insert("mibao",QJsonValue(mibao));
 
 
 
@@ -348,7 +430,10 @@ void Mainmenu::on_pushButton_6_clicked()
 
     obj.insert("op",QJsonValue(op));
     obj.insert("tableName",QJsonValue("movie"));
-    data.insert("movieName",QJsonValue(ui->lineEdit_delete_moviename->text()));
+    QString name = "'";
+    name += ui->lineEdit_delete_moviename->text();
+    name += "'";
+    data.insert("movieName",QJsonValue(name));
 
     obj.insert("data",QJsonValue(data));
 
@@ -380,11 +465,19 @@ void Mainmenu::on_pushButton_7_clicked()
     QJsonArray data;
 
     set.insert("mid",QJsonValue("NULL"));
-    set.insert("movieName",QJsonValue(ui->lineEdit_movie_name->text()));
+    QString name = "'";
+    name += ui->lineEdit_movie_name->text();
+    name += "'";
+    set.insert("movieName",QJsonValue(name));
     set.insert("releaseTime",QJsonValue(ui->dateEdit_releaseTime->text()));
     set.insert("projectionTime",QJsonValue(ui->dateEdit_projectionTime->text()));
     set.insert("price",QJsonValue(ui->lineEdit_movie_price->text()));
-    set.insert("introduce",QJsonValue(ui->textEdit_movie_introduce->toPlainText()));
+    QString introduce  = "'";
+    introduce += ui->textEdit_movie_introduce->toPlainText();
+    introduce += "'";
+
+
+    set.insert("introduce",QJsonValue(introduce));
 
     data.append(set);
 
@@ -429,18 +522,28 @@ void Mainmenu::on_pushButton_8_clicked()
     op.append("=");
     op.append("=");
 
+    QString newname = "'";
+    newname += ui->lineEdit_modify_movie->text();
+    newname += "'";
+    set.insert("movieName",QJsonValue(newname));
 
-    set.insert("movieName",QJsonValue(ui->lineEdit_modify_movie->text()));
     set.insert("releaseTime",QJsonValue(ui->dateEdit_modify_releaseTime->text()));
     set.insert("projectionTime",QJsonValue(ui->dateEdit_modify_projectionTme->text()));
     set.insert("price",QJsonValue(ui->lineEdit_modify_price->text()));
-    set.insert("introduce",QJsonValue(ui->textEdit_modify_introduce->toPlainText()));
+
+    QString introuce = "'";
+    introuce += ui->textEdit_modify_introduce->toPlainText();
+    introuce += "'";
+    set.insert("introduce",QJsonValue(introuce));
 
     obj.insert("tableName",QJsonValue("movie"));
     obj.insert("op",QJsonValue(op));
     obj.insert("set",QJsonValue(set));
 
-    data.insert("movieName",QJsonValue(ui->lineEdit_old_moveiname->text()));
+    QString name = "'";
+    name += ui->lineEdit_old_moveiname->text();
+    name += "'";
+    data.insert("movieName",QJsonValue(name));
 
     obj.insert("data",QJsonValue(data));
 
@@ -451,7 +554,7 @@ void Mainmenu::on_pushButton_8_clicked()
     int size = json.length();
 
     QString post;
-    int num = accept::INSERTMOVIE;
+    int num = accept::UPDATEMOVIE;
     post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));
@@ -473,10 +576,16 @@ void Mainmenu::on_pushButton_9_clicked()
     QJsonArray data;
 
     set.insert("sid",QJsonValue("NULL"));
-    set.insert("studioName",QJsonValue(ui->lineEdit_studioname->text()));
+    QString name = "'";
+    name += ui->lineEdit_studioname->text();
+    name += "'";
+    set.insert("studioName",QJsonValue(name));
     set.insert("row",QJsonValue(ui->lineEdit_row->text()));
     set.insert("col",QJsonValue(ui->lineEdit_col->text()));
-    set.insert("introduce",QJsonValue(ui->textEdit_studio_introduce->toPlainText()));
+    QString introduce = "'";
+    introduce += ui->textEdit_studio_introduce->toPlainText();
+    introduce += "'";
+    set.insert("introduce",QJsonValue(introduce));
 
     data.append(set);
 
@@ -484,6 +593,7 @@ void Mainmenu::on_pushButton_9_clicked()
 
     obj.insert("data",QJsonValue(data));
 
+    qDebug() << obj;
     QJsonDocument doc(obj);
     QString json = doc.toJson(QJsonDocument::Compact);
 
@@ -513,7 +623,11 @@ void Mainmenu::on_pushButton_10_clicked()
     QJsonArray op;
     op.append("=");
 
-    data.insert("studioName",QJsonValue(ui->lineEdit_delete_studioName->text()));
+    QString name = "'";
+    name += ui->lineEdit_delete_studioName->text();
+    name += "'";
+
+    data.insert("studioName",QJsonValue(name));
 
 
     obj.insert("tableName",QJsonValue("studio"));
@@ -552,15 +666,30 @@ void Mainmenu::on_pushButton_11_clicked()
     op.append("=");
     op.append("=");
 
-    set.insert("studioName",QJsonValue(ui->lineEdit_modify_studioname->text()));
+    QString newname = "'";
+    newname += ui->lineEdit_modify_studioname->text();
+    newname += "'";
+
+
+    set.insert("studioName",QJsonValue(newname));
     set.insert("row",QJsonValue(ui->lineEdit_modify_row->text()));
     set.insert("col",QJsonValue(ui->lineEdit_modify_col->text()));
-    set.insert("introduce",QJsonValue(ui->textEdit_modify_studiointrouduce->toPlainText()));
+
+    QString introduce = "'";
+    introduce += ui->textEdit_modify_studiointrouduce->toPlainText();
+    introduce += "'";
+    set.insert("introduce",QJsonValue(introduce));
 
 
     obj.insert("tableName",QJsonValue("studio"));
+    obj.insert("op",QJsonValue(op));
 
-    data.insert("studioName",QJsonValue(ui->lineEdit_old_moveiname->text()));
+    QString name = "'";
+    name += ui->lineEdit_modify_old_studioname->text();
+    name += "'";
+
+    qDebug() << "name = " << name;
+    data.insert("studioName",QJsonValue(name));
 
     obj.insert("set",QJsonValue(set));
     obj.insert("data",QJsonValue(data));
@@ -592,9 +721,23 @@ void Mainmenu::on_pushButton_12_clicked()
     QJsonArray data;
 
     set.insert("schid",QJsonValue("NULL"));
-    set.insert("studioName",QJsonValue(ui->lineEdit_schedule_studio->text()));
-    set.insert("movieName",QJsonValue(ui->lineEdit_schedule_movieName->text()));
-    set.insert("datetime",QJsonValue(ui->dateTimeEdit_schedule_datatime->text()));
+
+   /* QString studioname = "'";
+    studioname += ui->lineEdit_schedule_studio->text();
+    studioname += "'";*/
+    set.insert("studioid",QJsonValue(ui->lineEdit_schedule_studio->text()));
+
+
+   /* QString moviename = "'";
+    moviename += ui->lineEdit_schedule_movieName->text();
+    moviename += "'";*/
+
+    set.insert("movieid",QJsonValue(ui->lineEdit_schedule_movieName->text()));
+
+    QString date = "'";
+    date += ui->dateEdit_add_sch->text();
+    date += "'";
+    set.insert("datetime",QJsonValue(date));
 
     data.append(set);
 
@@ -747,6 +890,47 @@ void Mainmenu::get_studio()
 
     QString post;
     int num = accept::QUERYSTUDIO;
+    post.sprintf("POST /?%d \r\n",num);
+    post.append("Content-Length: ");
+    post.append(QString::number(size));
+    post.append("\r\n\r\n");
+
+    post.append(json);
+
+    tcpsocket.tcpSocket->write(post.toUtf8().data());
+
+}
+
+//删除电影计划ID
+void Mainmenu::on_pushButton_42_clicked()
+{
+    tcpClient& tcpsocket = tcpClient::get_tcpclient();
+
+    QJsonObject obj;
+    QJsonObject set;  //子对象
+    QJsonObject data;
+
+    QJsonArray op;
+    op.append("=");
+    obj.insert("op",QJsonValue(op));
+
+    data.insert("uid",QJsonValue(ui->lineEdit_delete_movieID->text().toInt()));
+
+
+
+
+    obj.insert("tableName",QJsonValue("schedule"));
+
+    obj.insert("data",QJsonValue(data));
+
+    QJsonDocument doc(obj);
+
+    QString json = doc.toJson(QJsonDocument::Compact);
+
+    int size = json.length();
+
+    QString post;
+    int num = accept::DELETESCHEDULE;
     post.sprintf("POST /?%d \r\n",num);
     post.append("Content-Length: ");
     post.append(QString::number(size));

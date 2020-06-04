@@ -114,6 +114,7 @@ void Login::on_login_button_clicked()
     post.append("\r\n\r\n");
 
     post.append(json);
+    qDebug() << post;
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
 
@@ -129,7 +130,7 @@ void Login::on_reg_button_clicked()
 void Login::on_pushButton_clicked()
 {
     QString ip = "121.89.171.193";
-    qint16 port = 8888;
+    qint16 port = 4507;
 
     tcpClient& tcpsocket = tcpClient::get_tcpclient();
 

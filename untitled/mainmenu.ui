@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>80</y>
-      <width>411</width>
-      <height>301</height>
+      <x>30</x>
+      <y>30</y>
+      <width>691</width>
+      <height>501</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>17</number>
+     <number>18</number>
     </property>
     <widget class="QWidget" name="modify_password_ui">
      <widget class="QLineEdit" name="lineEdit_old_password">
@@ -224,8 +224,8 @@
      <widget class="QPushButton" name="pushButton_3">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>290</y>
+        <x>200</x>
+        <y>280</y>
         <width>91</width>
         <height>51</height>
        </rect>
@@ -344,6 +344,19 @@
       </property>
       <property name="text">
        <string>确认删除</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_57">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>50</y>
+        <width>121</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>删除电影</string>
       </property>
      </widget>
     </widget>
@@ -856,8 +869,8 @@
      <widget class="QTableWidget" name="tableWidget_studio">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>0</y>
+        <x>20</x>
+        <y>40</y>
         <width>641</width>
         <height>431</height>
        </rect>
@@ -1026,12 +1039,12 @@
        <rect>
         <x>90</x>
         <y>90</y>
-        <width>71</width>
+        <width>101</width>
         <height>17</height>
        </rect>
       </property>
       <property name="text">
-       <string>所在影厅</string>
+       <string>所在影厅ID</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_36">
@@ -1039,12 +1052,12 @@
        <rect>
         <x>90</x>
         <y>130</y>
-        <width>71</width>
+        <width>91</width>
         <height>17</height>
        </rect>
       </property>
       <property name="text">
-       <string>上映电影</string>
+       <string>上映电影ID</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_37">
@@ -1093,12 +1106,12 @@
        <string>确定增加</string>
       </property>
      </widget>
-     <widget class="QDateTimeEdit" name="dateTimeEdit_schedule_datatime">
+     <widget class="QDateEdit" name="dateEdit_add_sch">
       <property name="geometry">
        <rect>
-        <x>190</x>
+        <x>200</x>
         <y>170</y>
-        <width>194</width>
+        <width>110</width>
         <height>26</height>
        </rect>
       </property>
@@ -1212,6 +1225,19 @@
        <string>确定增加</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_58">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>20</y>
+        <width>181</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>增加座位</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="delete_seat_ui">
      <widget class="QLabel" name="label_47">
@@ -1247,7 +1273,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>影厅名</string>
+       <string>行</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_49">
@@ -1260,7 +1286,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>影厅名</string>
+       <string>列</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_6">
@@ -1294,6 +1320,19 @@
       </property>
       <property name="text">
        <string>确认删除</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_59">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>10</y>
+        <width>151</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>删除座位</string>
       </property>
      </widget>
     </widget>
@@ -1403,6 +1442,19 @@
        <string>确认修改</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_60">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>40</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>修改座位</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="get_seat_studioName">
      <widget class="QLabel" name="label_54">
@@ -1439,6 +1491,69 @@
       </property>
       <property name="text">
        <string>确认查询</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="modify_movie_plan_ui">
+     <widget class="QLabel" name="label_56">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>90</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>演出计划ID</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>90</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="delete_movie_plan_ui">
+     <widget class="QLabel" name="label_55">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>151</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>演出计划ID</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_delete_movieID">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>70</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_42">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>240</y>
+        <width>80</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>确认删除</string>
       </property>
      </widget>
     </widget>
@@ -1667,7 +1782,6 @@
      </property>
      <addaction name="add_movie_plan"/>
      <addaction name="delete_movie_plan"/>
-     <addaction name="modify_movie_plan"/>
      <addaction name="search_movie_plan"/>
     </widget>
     <addaction name="movie_operation"/>

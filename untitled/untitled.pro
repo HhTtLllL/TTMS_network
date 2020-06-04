@@ -33,7 +33,8 @@ SOURCES += \
     mainmenu.cpp \
     accept.cpp \
     common.cpp \
-    user.cpp
+    user.cpp \
+    acceptdeal.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,13 +44,15 @@ HEADERS += \
     mainmenu.h \
     accept.h \
     common.h \
-    user.h
+    user.h \
+    acceptdeal.h
 
 FORMS += \
         mainwindow.ui \
     login.ui \
     title_wg.ui \
-    mainmenu.ui
+    mainmenu.ui \
+    acceptdeal.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

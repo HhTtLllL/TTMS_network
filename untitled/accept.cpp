@@ -17,11 +17,12 @@
 #include <QString>
 #include "common.h"
 #include <QObject>
-
+#include <QStandardItemModel>
+#include <QMessageBox>
 
 accept::accept()
 {
-    connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
+  /*  connect(tcpsocket.tcpSocket,&QTcpSocket::readyRead,[=]()
     {
         data = tcpsocket.tcpSocket->readAll();
         size = data.size();
@@ -30,7 +31,8 @@ accept::accept()
         qDebug() << "接受_2";
         deal();
 
-    });
+    });*/
+
 
 
 
@@ -79,62 +81,76 @@ void accept::deal()
     else if(pos.toInt() == accept::UPDATEUSER) //修改信息
     {
         accept_modify_information(obj);
+        QMessageBox::information(NULL, "修改信息", "成功修改");
     }
     else if(pos.toInt() == accept::DELETEMOVIE) //删除电影
     {
         delete_movie(obj);
+        QMessageBox::information(NULL, "删除电影", "成功删除");
     }
     else if(pos.toInt() == accept::INSERTMOVIE) //增加电影
     {
         add_movie(obj);
+        QMessageBox::information(NULL, "增加电影", "增加成功");
     }
     else if(pos.toInt() == accept::QUERYMOVIE) //获取电影
     {
         get_movie(obj);
+        QMessageBox::information(NULL, "获取电影", "获取成功");
     }
     else if(pos.toInt() == accept::UPDATEMOVIE) //修改电影
     {
         modify_movie(obj);
+        QMessageBox::information(NULL, "修改电影", "成功修改");
     }
     else if(pos.toInt() == accept::INSERTSTUDIO) //增加影厅
     {
         add_studio(obj);
+        QMessageBox::information(NULL, "增加影厅", "成功增加");
     }
     else if(pos.toInt() == accept::DELETESTUDIO)  //删除演出厅
     {
         delete_studio(obj);
+        QMessageBox::information(NULL, "删除演出厅", "成功删除");
     }
     else if(pos.toInt() == accept::QUERYSTUDIO) //查询演出厅
     {
         get_studio(obj);
+        QMessageBox::information(NULL, "查询演出厅", "查询成功");
     }
     else if(pos.toInt() == accept::UPDATESTUDIO)  //修改演出厅
     {
         modify_studio(obj);
+        QMessageBox::information(NULL, "修改演出厅", "成功修改");
     }
     else if(pos.toInt() == accept::UPDATESEAT)  //修改座位
     {
+        QMessageBox::information(NULL, "修改作为", "成功修改");
 
     }
     else if(pos.toInt() == accept::QUERYSEAT) //获取座位
     {
+        QMessageBox::information(NULL, "获取座位", "成功获取");
 
     }
     else if(pos.toInt() == accept::INSERTSCHEDULE) //增加电影计划
     {
-
+        QMessageBox::information(NULL, "增加电影", "成功增加");
     }
     else if(pos.toInt() == accept::UPDATESCHEDULE) //修改电影计划
     {
+        QMessageBox::information(NULL, "修改电影计划", "成功修改");
 
     }
     else if(pos.toInt() == accept::DELETESCHEDULE) //删除电影计划
     {
 
+        QMessageBox::information(NULL, "删除电影计划", "成功删除");
     }
     else if(pos.toInt() == accept::QUERYSCHEDULE)  //查询演出计划
     {
 
+        QMessageBox::information(NULL, "查询演出计划", "查询成功");
     }
 
 }
@@ -175,9 +191,6 @@ void accept::accept_login(QJsonObject respon)
 
     qDebug() << "调用登录主菜单";
     w2.show();
-
-
-
 }
 
 //注销
@@ -258,6 +271,33 @@ void accept::get_movie(QJsonObject respon)
         return ;
     }
 
+
+    QStandardItemModel* model = new QStandardItemModel();
+    model->setColumnCount(5);
+
+    QStringList header;
+    header<<tr("电影名")<<tr("上映时间")<<tr("下映时间")<<tr("票价")<<tr("电影介绍");
+    model->setHorizontalHeaderLabels(header);
+
+    QJsonArray data;
+    data = respon.value("data").toArray();
+
+
+    qDebug() << data.size();
+
+    for(int i = 0 ; i < data.size() ; i ++ )
+    {
+        QJsonObject sub = data.at(i).toObject();
+        QString studioName = sub.value("studioName").toString();
+
+        model->setItem(i,0,new QStandardItem(studioName));
+        model->setItem(i,0,new QStandardItem(studioName));
+        model->setItem(i,0,new QStandardItem(studioName));
+        model->setItem(i,0,new QStandardItem(studioName));
+
+
+    }
+
     //获取成功，展示电影
 
 }
@@ -271,8 +311,6 @@ void accept::modify_movie(QJsonObject respon)
         qDebug() << "修改失败";
         return ;
     }
-
-    //修改成功
 }
 
 //添加电影厅
@@ -311,7 +349,34 @@ void accept::get_studio(QJsonObject respon)
         return ;
     }
 
+    qDebug() << "获取影厅";
+    QStandardItemModel* model = new QStandardItemModel();
+    model->setColumnCount(4);
+
+    QStringList header;
+    header<<tr("影厅名")<<tr("行")<<tr("列")<<tr("影厅介绍");
+    model->setHorizontalHeaderLabels(header);
+
+    QJsonArray data;
+    data = respon.value("data").toArray();
+
+
+    qDebug() << data.size();
+
+    for(int i = 0 ; i < data.size() ; i ++ )
+    {
+        QJsonObject sub = data.at(i).toObject();
+        QString studioName = sub.value("studioName").toString();
+        model->setItem(i,0,new QStandardItem(studioName));
+
+
+    }
+
     //获取成功，展示电影
+  /*  ui->stackedWidget->setCurrentWidget(ui->get_theater_ui);
+    ui->tableWidget_studio->setRowCount(5);
+    ui->tableWidget_studio->setColumnCount(4);
+    ui->tableWidget_studio->setAlternatingRowColors(true);*/
 
 }
 

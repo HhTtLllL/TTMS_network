@@ -83,6 +83,8 @@ private slots:
     void on_pushButton_41_clicked();
     void get_studio();
 
+    void on_pushButton_42_clicked();
+
 private:
     Ui::Mainmenu *ui;
 };
