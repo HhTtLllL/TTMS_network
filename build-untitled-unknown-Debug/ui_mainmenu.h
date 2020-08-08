@@ -175,7 +175,6 @@ public:
     QPushButton *pushButton_12;
     QDateEdit *dateEdit_add_sch;
     QWidget *get_movie_plan_ui;
-    QTableWidget *tableWidget_movie_plan;
     QLabel *label_43;
     QWidget *add_seat_ui;
     QLabel *label_44;
@@ -305,7 +304,7 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setGeometry(QRect(110, 60, 521, 371));
+        stackedWidget->setGeometry(QRect(140, 40, 521, 471));
         modify_password_ui = new QWidget();
         modify_password_ui->setObjectName(QStringLiteral("modify_password_ui"));
         lineEdit_old_password = new QLineEdit(modify_password_ui);
@@ -313,7 +312,7 @@ public:
         lineEdit_old_password->setGeometry(QRect(230, 70, 108, 25));
         label = new QLabel(modify_password_ui);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(160, 70, 45, 23));
+        label->setGeometry(QRect(10, 70, 45, 23));
         label_2 = new QLabel(modify_password_ui);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(9, 98, 45, 23));
@@ -662,12 +661,9 @@ public:
         stackedWidget->addWidget(add_movie_plan_ui);
         get_movie_plan_ui = new QWidget();
         get_movie_plan_ui->setObjectName(QStringLiteral("get_movie_plan_ui"));
-        tableWidget_movie_plan = new QTableWidget(get_movie_plan_ui);
-        tableWidget_movie_plan->setObjectName(QStringLiteral("tableWidget_movie_plan"));
-        tableWidget_movie_plan->setGeometry(QRect(110, 50, 461, 361));
         label_43 = new QLabel(get_movie_plan_ui);
         label_43->setObjectName(QStringLiteral("label_43"));
-        label_43->setGeometry(QRect(250, 20, 191, 17));
+        label_43->setGeometry(QRect(140, 40, 191, 17));
         stackedWidget->addWidget(get_movie_plan_ui);
         add_seat_ui = new QWidget();
         add_seat_ui->setObjectName(QStringLiteral("add_seat_ui"));
@@ -971,7 +967,7 @@ public:
 
         retranslateUi(Mainmenu);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(Mainmenu);
@@ -1064,7 +1060,7 @@ public:
         label_36->setText(QApplication::translate("Mainmenu", "\344\270\212\346\230\240\347\224\265\345\275\261ID", 0));
         label_37->setText(QApplication::translate("Mainmenu", "\344\270\212\346\230\240\346\227\266\351\227\264", 0));
         pushButton_12->setText(QApplication::translate("Mainmenu", "\347\241\256\345\256\232\345\242\236\345\212\240", 0));
-        label_43->setText(QApplication::translate("Mainmenu", "\347\224\265\345\275\261\350\256\241\345\210\222", 0));
+        label_43->setText(QApplication::translate("Mainmenu", "\351\246\226\351\241\265", 0));
         label_44->setText(QApplication::translate("Mainmenu", "\345\275\261\345\216\205\345\220\215", 0));
         label_45->setText(QApplication::translate("Mainmenu", "\350\241\214", 0));
         label_46->setText(QApplication::translate("Mainmenu", "\345\210\227", 0));

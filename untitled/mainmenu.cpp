@@ -245,12 +245,13 @@ void Mainmenu::on_search_movie_plan_triggered()
 //修改用户密码
 void Mainmenu::on_pushButton_clicked()
 {
+    qDebug() << "修改密码";
 
     tcpClient& tcpsocket = tcpClient::get_tcpclient();
     User& user = User::get_user();
 
     //首先判断旧密码 == 用户密码
-    if(QString::compare(user.passWord,QString(ui->lineEdit_old_password->text())))
+   /* if(QString::compare(user.passWord,QString(ui->lineEdit_old_password->text())))
     {
         //错误弹窗
         return ;
@@ -263,7 +264,7 @@ void Mainmenu::on_pushButton_clicked()
 
         return ;
     }
-
+*/
 
 
     QJsonObject obj;
@@ -302,6 +303,7 @@ void Mainmenu::on_pushButton_clicked()
     post.append(json);
 
     tcpsocket.tcpSocket->write(post.toUtf8().data());
+    qDebug() <<" post = " <<  post;
 
 
 }

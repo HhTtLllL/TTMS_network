@@ -17,14 +17,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>60</y>
+      <x>140</x>
+      <y>40</y>
       <width>521</width>
-      <height>371</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="modify_password_ui">
      <widget class="QLineEdit" name="lineEdit_old_password">
@@ -40,7 +40,7 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>10</x>
         <y>70</y>
         <width>45</width>
         <height>23</height>
@@ -1268,27 +1268,17 @@
      </widget>
     </widget>
     <widget class="QWidget" name="get_movie_plan_ui">
-     <widget class="QTableWidget" name="tableWidget_movie_plan">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>50</y>
-        <width>461</width>
-        <height>361</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_43">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>20</y>
+        <x>140</x>
+        <y>40</y>
         <width>191</width>
         <height>17</height>
        </rect>
       </property>
       <property name="text">
-       <string>电影计划</string>
+       <string>首页</string>
       </property>
      </widget>
     </widget>
